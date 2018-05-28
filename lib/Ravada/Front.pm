@@ -175,24 +175,44 @@ sub list_machines_user {
 sub list_machines($self, $user) {
     return $self->list_domains() if $user->can_list_machines;
 
+    my @list_machines = ();
     if ($user->can_remove_clones() || $user->can_shutdown_clones() ) {
         my $machines = $self->list_bases( id_owner => $user->id );
         for my $base (@$machines) {
             confess "ERROR: BAse without id ".Dumper($base) if !$base->{id};
             push @$machines,@{$self->list_domains( id_base => $base->{id} )};
         }
-        return $machines;
+        push @list_machines, @$machines;
     }
     if ($user->can_remove_clone_all()) {
         my $machines = $self->list_bases( );
         for my $base (@$machines) {
             push @$machines,@{$self->list_domains( id_base => $base->{id} )};
         }
-        return $machines;
+        push @list_machines, @$machines;
+    }
+    push @list_machines, @{$self->list_clones()} if $user->can_list_clones;
+
+    if ($user->can_create_machine()) {
+        my $machines = $self->list_domains( id_owner => $user->id );
+        for my $base (@$machines) {
+            confess "ERROR: BAse without id ".Dumper($base) if !$base->{id};
+            push @$machines,@{$self->list_domains( id_base => $base->{id} )};
+        }
+        push @list_machines, @{$machines};
 
     }
-    return $self->list_clones() if $user->can_list_clones;
-    return [];
+
+    my %base = map { $_->{id} => $_ }grep { $_->{is_base} } @list_machines;
+    for my $clone (@list_machines) {
+        next if !$clone->{id_base} || $base{$clone->{id_base}};
+        push @list_machines, @{$self->list_domains( id => $clone->{id_base})};
+    }
+
+    my %seen;
+    my @uniq_machines = grep { !$seen{$_->{id}}++ } @list_machines;
+
+    return \@uniq_machines;
 }
 
 sub _around_list_machines($orig, $self, $user) {
