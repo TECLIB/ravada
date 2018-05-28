@@ -195,10 +195,6 @@ sub list_machines($self, $user) {
 
     if ($user->can_create_machine()) {
         my $machines = $self->list_domains( id_owner => $user->id );
-        for my $base (@$machines) {
-            confess "ERROR: BAse without id ".Dumper($base) if !$base->{id};
-            push @$machines,@{$self->list_domains( id_base => $base->{id} )};
-        }
         push @list_machines, @{$machines};
 
     }
