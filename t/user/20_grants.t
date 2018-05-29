@@ -56,8 +56,10 @@ sub test_defaults {
     
     ok(!$user->can_manage_users);
 
-    for my $perm (user_admin->list_permissions) {
-        if ( $perm =~ m{^(clone|change_settings|screenshot|remove)$}) {
+    for my $perm_info (user_admin->list_permissions) {
+        my ($perm, $value) = @$perm_info;
+        like($perm,qr{^[a-z][a-z_]+$}) or exit;
+        if ( $perm =~ m{^(clone|change_settings|screenshot|remove|shutdown)$}) {
             is($user->can_do($perm),1,$perm);
         } else {
             is($user->can_do($perm),undef,$perm);

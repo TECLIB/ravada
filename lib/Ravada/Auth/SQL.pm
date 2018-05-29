@@ -13,6 +13,7 @@ use Carp qw(carp);
 
 use Ravada;
 use Ravada::Front;
+use Ravada::Utils;
 use Digest::SHA qw(sha1_hex);
 use Hash::Util qw(lock_hash);
 use Moose;
@@ -152,36 +153,28 @@ sub add_user {
 
     my $user = Ravada::Auth::SQL->search_by_id($id_user);
 
-    # temporary allow grant permissions
-    my $id_grant = _search_id_grant('grant');
+    my $id_grant = $user->_search_id_grant('grant');
 
-    $sth = $$CON->dbh->prepare(
-            "INSERT INTO grants_user "
-            ." (id_grant, id_user, allowed)"
-            ." VALUES(?,?,1) "
-        );
-    $sth->execute($id_grant, $id_user);
-    $sth->finish;
-
-    $user->grant_user_permissions($user);
+    Ravada::Utils::user_daemon->grant_user_permissions($user);
     if (!$is_admin) {
-        $user->grant_user_permissions($user);
-        $user->revoke($user,'grant');
+        Ravada::Utils::user_daemon->grant_user_permissions($user);
+        Ravada::Utils::user_daemon->revoke($user,'grant');
         return $user;
     }
-    $user->grant_admin_permissions($user);
+    Ravada::Utils::user_daemon->grant_admin_permissions($user);
     return $user;
 }
 
-sub _search_id_grant {
-    my $type = shift;
-    my $sth = $$CON->dbh->prepare("SELECT id FROM grant_types WHERE name = ?");
-    $sth->execute($type);
-    my ($id) = $sth->fetchrow;
-    $sth->finish;
+sub _search_id_grant($self, $type) {
 
-    confess "Unknown grant $type"   if !$id;
-    return $id;
+    $self->_load_grants();
+
+    $type = $self->{_grant_alias}->{$type}->{alias}
+        if exists $self->{_grant_alias}->{$type};
+
+    return $self->{_grant_id}->{$type} if exists $self->{_grant_id}->{$type};
+
+    confess "Unknown grant $type ".Dumper($self->{_grant_id});
 }
 
 sub _load_data {
@@ -555,11 +548,19 @@ Returns if the user is allowed to perform a privileged action
 =cut
 
 sub can_do($self, $grant) {
-    return $self->{_grant}->{$grant} if defined $self->{_grant}->{$grant};
-
     $self->_load_grants();
 
-    confess "Unknown permission '$grant'\n" if !exists $self->{_grant}->{$grant};
+    $grant = $self->{_grant_alias}->{$grant}->{alias}
+        if exists $self->{_grant_alias}
+            && exists $self->{_grant_alias}->{$grant};
+
+    return $self->{_grant}->{$grant}
+        if exists $self->{_grant} && defined $self->{_grant}->{$grant};
+
+    confess "Unknown permission '$grant'\n"
+            .Dumper($self->{_grant})
+            ."\n".Dumper($self->{_grant_alias})
+        if !exists $self->{_grant}->{$grant};
     return $self->{_grant}->{$grant};
 }
 
@@ -580,9 +581,12 @@ sub can_do_domain($self, $grant, $domain) {
 }
 
 sub _load_grants($self) {
+    $self->_load_grants_alias();
+
+    return if $self->{_grant};
     my $sth;
     eval { $sth= $$CON->dbh->prepare(
-        "SELECT gt.name, gu.allowed, gt.enabled"
+        "SELECT gt.name, gu.allowed, gt.enabled, gt.id"
         ." FROM grant_types gt LEFT JOIN grants_user gu "
         ."      ON gt.id = gu.id_grant "
         ."      AND gu.id_user=?"
@@ -590,12 +594,27 @@ sub _load_grants($self) {
     $sth->execute($self->id);
     };
     confess $@ if $@;
-    my ($name, $allowed, $enabled);
-    $sth->bind_columns(\($name, $allowed, $enabled));
+    my ($name, $allowed, $enabled, $id_grant);
+    $sth->bind_columns(\($name, $allowed, $enabled, $id_grant));
 
     while ($sth->fetch) {
         $self->{_grant}->{$name} = $allowed     if $enabled;
         $self->{_grant_disabled}->{$name} = !$enabled;
+        $self->{_grant_id}->{$name} = $id_grant;
+    }
+    $sth->finish;
+}
+
+sub _load_grants_alias($self) {
+    return if $self->{_grant_alias};
+
+    my $sth;
+    $sth= $$CON->dbh->prepare( "SELECT * FROM grant_types_alias ");
+    $sth->execute();
+
+    while (my $row = $sth->fetchrow_hashref) {
+        lock_hash(%$row);
+        $self->{_grant_alias}->{$row->{name}} = $row;
     }
     $sth->finish;
 }
@@ -701,7 +720,7 @@ sub grant($self,$user,$permission,$value=1) {
     my $value_sql = $user->can_do($permission);
     return $value if defined $value_sql && $value_sql eq $value;
 
-    my $id_grant = _search_id_grant($permission);
+    my $id_grant = $self->_search_id_grant($permission);
     if (! defined $user->can_do($permission)) {
         my $sth = $$CON->dbh->prepare(
             "INSERT INTO grants_user "
@@ -719,6 +738,8 @@ sub grant($self,$user,$permission,$value=1) {
         $sth->execute($value, $id_grant, $user->id);
         $sth->finish;
     }
+    $permission = $user->{_grant_alias}->{$permission}->{alias}
+        if exists $user->{_grant_alias}->{$permission};
     $user->{_grant}->{$permission} = $value;
     confess "Unable to grant $permission for ".$user->name ." expecting=$value "
             ." got= ".$user->can_do($permission)
@@ -769,6 +790,7 @@ Returns a list of all the permissions granted to the user
 =cut
 
 sub list_permissions($self) {
+    $self->_load_grants();
     my @list;
     for my $grant (sort keys %{$self->{_grant}}) {
         push @list , (  [$grant => $self->{_grant}->{$grant} ] )
@@ -841,7 +863,8 @@ sub can_remove_machine($self, $domain) {
 }
 
 sub grants($self) {
-    $self->_load_grants()   if !$self->{_grant};
+    $self->_load_grants();
+
     return () if !$self->{_grant};
     return %{$self->{_grant}};
 }
