@@ -23,7 +23,10 @@
 %   if ( $USER->can_remove_machine($domain->id)) {
         <li class="nav"><a href="#remove" data-toggle="tab"><%=l 'Remove Machine' %></a></li>
 %   }
-% if ( $monitoring && $USER->is_admin && $domain->internal_id >= 1 ) {
-    <li class="nav"><a href="#monitoring" data-toggle="tab"><%=l 'System overview' %></a></li>
+%   if ($USER->is_admin) {
+        <li class="nav"><a href="#clones" data-toggle="tab"><%=l 'Clones' %></a></li>
+%   }
+%   if ( $monitoring && $USER->is_admin && $domain->internal_id >= 1 ) {
+        <li class="nav"><a href="#monitoring" data-toggle="tab"><%=l 'System overview' %></a></li>
 %   }
 </ul>
