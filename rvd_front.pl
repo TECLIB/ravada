@@ -1322,7 +1322,9 @@ sub settings_machine {
     $c->stash(list_users => $RAVADA->list_users);
     my $actual_owner = $domain->id_owner;
     if ($c->param("new_owner") && $actual_owner != $c->param("new_owner")) {
-       my $req_change = Ravada::Request->change_owner(uid => $c->param("new_owner"), id_domain => $domain->id);
+       my $req_change = Ravada::Request->change_owner(
+           uid => $USER->id
+           ,id_owner => $c->param("new_owner"), id_domain => $domain->id);
        $actual_owner = $c->param("new_owner");
     }
 
