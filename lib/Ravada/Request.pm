@@ -66,7 +66,7 @@ our %VALID_ARG = (
     ,download => {uid => 2, id_iso => 1, id_vm => 2, delay => 2, verbose => 2}
     ,refresh_storage => { id_vm => 2 }
     ,clone => { uid => 1, id_domain => 1, name => 1, memory => 2 }
-    ,change_owner => {uid => 1, id_domain => 1}
+    ,change_owner => {uid => 1, id_domain => 1, id_owner => 1}
 );
 
 our %CMD_SEND_MESSAGE = map { $_ => 1 }

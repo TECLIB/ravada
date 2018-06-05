@@ -678,10 +678,15 @@ sub _update_grants($self) {
         $sth->execute($rename{$old}, $old);
     }
 
-    $self->_add_grant('shutdown', 1);
+    $self->_add_grant('shutdown'
+        ,"can shutdown any virtual machine owned by the user"
+        ,1);
+    $self->_add_grant('change_owner_all'
+        ,"can change the owner of a virtual machine"
+        ,0);
 }
 
-sub _add_grant($self, $grant, $allowed) {
+sub _add_grant($self, $grant, $description, $allowed_all=0) {
 
     my $sth = $CONNECTOR->dbh->prepare(
         "SELECT id FROM grant_types WHERE name=?"
@@ -694,10 +699,8 @@ sub _add_grant($self, $grant, $allowed) {
 
     $sth = $CONNECTOR->dbh->prepare("INSERT INTO grant_types (name, description)"
         ." VALUES (?,?)");
-    $sth->execute($grant,"can shutdown any virtual machine owned by the user");
+    $sth->execute($grant,$description);
     $sth->finish;
-
-    return if !$allowed;
 
     $sth = $CONNECTOR->dbh->prepare("SELECT id FROM grant_types WHERE name=?");
     $sth->execute($grant);
@@ -707,11 +710,13 @@ sub _add_grant($self, $grant, $allowed) {
     my $sth_insert = $CONNECTOR->dbh->prepare(
         "INSERT INTO grants_user (id_user, id_grant, allowed) VALUES(?,?,?) ");
 
-    $sth = $CONNECTOR->dbh->prepare("SELECT id FROM users ");
+    $sth = $CONNECTOR->dbh->prepare("SELECT id, is_admin FROM users ");
     $sth->execute;
 
-    while (my ($id_user) = $sth->fetchrow ) {
-        eval { $sth_insert->execute($id_user, $id_grant, $allowed) };
+    while (my ($id_user, $is_admin) = $sth->fetchrow ) {
+        next unless $allowed_all || $is_admin;
+
+        eval { $sth_insert->execute($id_user, $id_grant, 1) };
         die $@ if $@ && $@ !~/Duplicate entry /;
     }
 }
@@ -737,6 +742,7 @@ sub _enable_grants($self) {
     $sth->execute;
     my @grants = (
         'change_settings',  'change_settings_all',  'change_settings_clones'
+        ,'change_owner_all'
         ,'clone',           'clone_all',            'create_base', 'create_machine'
         ,'grant'
         ,'manage_users'
@@ -2230,12 +2236,20 @@ sub _cmd_refresh_storage($self, $request=undef) {
 
 sub _cmd_change_owner($self, $request) {
     my $uid = $request->args('uid');
+    my $id_owner = $request->args('id_owner');
     my $id_domain = $request->args('id_domain');
+
+    my $user = Ravada::Auth::SQL->search_by_id($uid);
+
+    die "User ".$user->name." [".$user->id."] not allowed to change the owner "
+        ." of domain ".$id_domain
+            if !$user->can_change_owner_all();
+
     my $sth = $CONNECTOR->dbh->prepare(
         "UPDATE domains SET id_owner=?"
         ." WHERE id=?"
     );
-    $sth->execute($uid, $id_domain);
+    $sth->execute($id_owner, $id_domain);
     $sth->finish;
 }
 
