@@ -352,6 +352,7 @@ sub is_operator {
         || $self->can_create_base()
         || $self->can_create_machine
         || $self->can_list_machines
+        || $self->can_change_owner_all
         || $self->can_change_settings_all()
         || 0;
 }
@@ -405,6 +406,7 @@ sub can_list_machines {
     return 1 if $self->is_admin()
             || $self->can_remove_all || $self->can_remove_clone_all
             || $self->can_shutdown_all
+            || $self->can_change_owner_all
             || $self->can_change_settings_all();
     return 0;
 }
@@ -799,7 +801,8 @@ sub can_change_settings($self, $id_domain=undef) {
 =cut
 
 sub can_manage_machine($self, $domain) {
-    return 1 if $self->is_admin;
+    return 1 if $self->is_admin
+                || $self->can_change_owner_all;
 
     $domain = Ravada::Front::Domain->open($domain)  if !ref $domain;
 
