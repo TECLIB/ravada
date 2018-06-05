@@ -40,8 +40,11 @@ sub test_change_owner {
         ,iso_file => '<NONE>'
     );
     is($USER->id, $domain->id_owner) or return;
-    my $req = Ravada::Request->change_owner(uid => $USER2->id, id_domain => $domain->id);
+    my $req = Ravada::Request->change_owner(uid => user_admin->id, id_owner => $USER2->id
+        ,id_domain => $domain->id);
     rvd_back->_process_requests_dont_fork();
+    is($req->status, 'done');
+    is($req->error,'');
 
     $domain = Ravada::Domain->open($domain->id);
     is($USER2->id, $domain->id_owner) or return;
