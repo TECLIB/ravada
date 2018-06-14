@@ -692,3 +692,6 @@ msgstr ""
 
 msgid "This information will be available to the users"
 msgstr ""
+
+msgid "Start all clones"
+msgstr ""

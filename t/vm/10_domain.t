@@ -45,6 +45,14 @@ sub test_change_owner {
     is($USER2->id, $domain->id_owner) or return;
 }
 
+sub test_start_clones {
+    my $vm_name = shift;
+    my $domain = $vm->create_domain(name => $name
+                    , id_owner => $USER->id
+                    , arg_create_dom($vm_name));
+
+}
+
 sub test_vm_connect {
     my $vm_name = shift;
 
@@ -423,6 +431,7 @@ for my $vm_name (qw( Void KVM )) {
 
         use_ok($CLASS) or next;
         test_change_owner($vm_name);
+        test_start_clones($vm_name);
         test_vm_connect($vm_name);
         test_search_vm($vm_name);
 
