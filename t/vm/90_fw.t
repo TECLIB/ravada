@@ -209,7 +209,30 @@ sub test_jump {
     $domain->open_iptables(remote_ip => '1.1.1.1', uid => user_admin->id);
 
     $out = `iptables -L INPUT -n`;
-    ok(grep(/^RAVADA /, split(/\n/,$out)),"Expecting RAVADA jump in $out");
+    is(scalar(grep(/^RAVADA /, split(/\n/,$out))),1,"Expecting 1 RAVADA jump in $out");
+
+    # raise another, check only 1 jump
+    my $domain2 = create_domain($vm_name);
+    $domain2->start(
+         remote_ip => '2.2.2.2'
+        , user => user_admin
+    );
+    
+    $out = `iptables -L INPUT -n`;
+    is(scalar(grep(/^RAVADA /, split(/\n/,$out))),1,"Expecting 1 RAVADA jump in $out");
+
+    # raise another, check only 1 jump
+    my $user2 = create_user('cedric.daniels','comissioner',1);
+    my $domain3 = create_domain($vm_name, $user2);
+    $domain3->start( user => user_admin );
+    $domain3->open_iptables(
+        user => $user2
+        ,remote_ip => '3.3.3.3'
+    );
+    
+    $out = `iptables -L INPUT -n`;
+    is(scalar(grep(/^RAVADA /, split(/\n/,$out))),1,"Expecting 1 RAVADA jump in $out");
+    $user2->remove();
 }
 
 sub test_new_ip {
