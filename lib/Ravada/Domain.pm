@@ -1689,13 +1689,25 @@ sub _obj_iptables {
     if (!$rv) {
 		$ipt_obj->create_chain('filter', $IPTABLES_CHAIN);
 	}
-    ($rv, $out_ar, $errs_ar) = $ipt_obj->add_jump_rule('filter','INPUT', 1, $IPTABLES_CHAIN);
-    warn join("\n", @$out_ar)   if $out_ar->[0] && $out_ar->[0] !~ /already exists/;
+    _add_jump_rule($ipt_obj);
 	# set the policy on the FORWARD table to DROP
 #    $ipt_obj->set_chain_policy('filter', 'FORWARD', 'DROP');
 
     return $ipt_obj;
 }
+
+sub _add_jump_rule($ipt_obj) {
+
+    my @cmd = ('iptables','-L','INPUT');
+    my ($in, $out, $err);
+    run3(\@cmd, \$in, \$out, \$err);
+    for my $line (split /\n/, $out) {
+                return if $line =~ /^$IPTABLES_CHAIN /;
+    }
+    my ($rv, $out_ar, $errs_ar) = $ipt_obj->add_jump_rule('filter','INPUT', 1, $IPTABLES_CHAIN);
+    warn join("\n", @$out_ar)   if $out_ar->[0] && $out_ar->[0] !~ /already exists/;
+}
+
 
 sub _log_iptable {
     my $self = shift;
