@@ -58,6 +58,7 @@ my $CONFIG_FRONT = plugin Config => { default => {
                                                     ,autostart => 0
                                               }
                                               ,config => $FILE_CONFIG_RAVADA
+                                              ,auto_view => 0
                                               }
                                       ,file => $FILE_CONFIG
 };
@@ -1176,7 +1177,10 @@ sub show_link {
     _open_iptables($c,$domain)
         if !$req;
     my $uri_file = "/machine/display/".$domain->id;
-    $c->stash(url => $uri_file)  if $c->session('auto_view') && ! $domain->spice_password;
+    $c->stash(url => $uri_file)  if ! $domain->spice_password
+                                    && ( $c->session('auto_view')
+                                        || $CONFIG_FRONT->{auto_view}
+                                    );
     my ($display_ip, $display_port) = $uri =~ m{\w+://(\d+\.\d+\.\d+\.\d+):(\d+)};
     my $description = $domain->description;
     if (!$description && $domain->id_base) {
@@ -1192,7 +1196,9 @@ sub show_link {
                 ,display_ip => $display_ip
                 ,display_port => $display_port
                 ,description => $description
-                ,login => $c->session('login'));
+                ,login => $c->session('login')
+                ,show_auto_view_form  => !$CONFIG_FRONT->{auto_view}
+            );
 }
 
 sub _open_iptables {

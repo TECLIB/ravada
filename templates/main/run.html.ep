@@ -35,7 +35,7 @@
                 <li><%=l 'Display IP:' %> <b><%= $display_ip %></b></li>
                 <li><%=l 'Display Port:' %> <b><%= $display_port %></b></li>
             </ul>
-%           if (!$password) {
+%           if (!$password && $show_auto_view_form) {
             <label for="automatic"><input type="checkbox" ng-click="toggle_auto_view()"
 %           if ($c->session('auto_view')) {
                 checked
