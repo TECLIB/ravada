@@ -1,0 +1,21 @@
+.contact-page {
+
+  img {
+    width: 30px;
+  }
+
+  .contact-page__row {
+    overflow: auto;
+    text-align: center;
+
+    a {
+      margin-top: 15px;
+    }
+  }
+
+  .contact-page__row--social {
+    img {
+      margin: 0 20px;
+    }
+  }
+}
