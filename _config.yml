@@ -1,9 +1,9 @@
-title: web admin dashboard
-email: ml-flyvemdm@teclib.com
-twitter: flyvemdm
-baseurl: "/web-mdm-dashboard"
-url: "http://flyve.org"   
-image: http://flyve.org/web-mdm-dashboard/images/logo2.png
+title: Ravada VDI
+email: ravada@telecos.upc.edu
+twitter: ravada_vdi
+baseurl: "/"
+url: "https://ravada.upc.edu/"
+image: https://ravada.upc.edu/images/logo2.png
 
 # Build settings
 markdown: kramdown
@@ -13,12 +13,12 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-repository: flyve-mdm/web-mdm-dashboard
+repository: UPC/ravada
 
 prose:
 
-  rooturl: '_posts' 
-  
+  rooturl: '_posts'
+
   ignore:
     - .keep
 
@@ -91,7 +91,7 @@ prose:
           value: ""
       - name: "redditURL"
         field:
-          element: "text" 
+          element: "text"
           label: Reddit URL
           value: ""
 
