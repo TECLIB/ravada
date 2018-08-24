@@ -50,62 +50,17 @@
                 </a>
               </li>
 
-              <li class="hidden">
+              <!-- <li>
                 <a class="color-type-secondary" href="{{ '/screenshots' | absolute_url }}">
                   Screenshots
                 </a>
-              </li>
+              </li> -->
 
-              <li class="dropdown .theme-light">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Development<i class="glyph glyph-chevron-down-2"></i></a>
-                  <ul class="dropdown-menu dropdown-menu2" role="menu">
-
-                      <li class="dropdown-submenu">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              Code Documentation <i class="glyph glyph-chevron-right"></i>
-                          </a>
-                          <ul class="dropdown-menu">
-                                  <li>
-                                      <a href="{{ 'development/code-documentation/develop/' | absolute_url }}" target="_blank">Develop</a>
-                                  </li>
-                                  <li>
-                                      <a href="{{ 'development/code-documentation/master/' | absolute_url }}" target="_blank">Master</a>
-                                  </li>
-                              {% for version in site.data.whitelist_version %}
-                                  <li>
-                                      <a href="{{ 'development/code-documentation/support/' | absolute_url }}{{ version }}" target="_blank">{{ version }}</a>
-                                  </li>
-                              {% endfor %}
-                          </ul>
-                      </li>
-
-                      <li class="dropdown-submenu">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              Coverage <i class="glyph glyph-chevron-right"></i>
-                          </a>
-                          <ul class="dropdown-menu">
-                              <li>
-                                  <a href="{{ 'development/coverage/develop/' | absolute_url }}">Develop</a>
-                              </li>
-                              <li>
-                                  <a href="{{ 'development/coverage/master/' | absolute_url }}">Master</a>
-                              </li>
-                              {% for version in site.data.whitelist_version %}
-                                  <li>
-                                      <a href="{{ 'development/coverage/support/' | absolute_url }}{{ version }}" target="_blank">{{ version }}</a>
-                                  </li>
-                              {% endfor %}
-                          </ul>
-                      </li>
-                      <li><a href="{{ '/development/DB-scheme' | absolute_url }}">DB scheme</a></li>
-                  </ul>
-              </li>
-
-              <li>
+              <!-- <li>
                 <a class="color-type-secondary" href="{{ '/howtos' | absolute_url }}">
                   How-tos
                 </a>
-              </li>
+              </li> -->
 
               <li>
                 <a ="color-type-secondary" href="{{ '/projects' | absolute_url }}">
