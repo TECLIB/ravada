@@ -3,7 +3,7 @@
 
 self.addEventListener('install', (e) => {
 
-  {% assign name = site.github.project_title | replace: "flyve-mdm-", "" %}
+  {% assign name = site.github.project_title %}
 
   var CACHE_NAME = '{{ site.data.config.cache_version }}'
 
@@ -24,7 +24,7 @@ self.addEventListener('install', (e) => {
         '{{ site.baseurl }}/?homescreen=1',
         '{{ "/index.html" | absolute_url }}',
         '{{ "/index.html" | absolute_url }}?homescreen=1',
-        '{{ "/css/flyve-mdm.min.css" | absolute_url }}',
+        '{{ "/css/ravada.css" | absolute_url }}',
         '{{ "/css/main.css" | absolute_url }}',
         '{{ "/css/syntax.css" | absolute_url }}',
         '{{ "/images/typo.png" | absolute_url }}',

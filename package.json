@@ -1,7 +1,7 @@
 {
-  "name": "web-mdm-dashboard",
+  "name": "ravada",
   "version": "2.0.0",
-  "description": "Branch created with the intention of functioning as an introduction web site of the project, a small point of entry where anyone can find out what it is about and to be able to get relevant information.",
+  "description": "Remote Virtual Desktops Manager",
   "sasslintConfig": ".sass-lint.yml",
   "scripts": {
     "start": "bundle exec jekyll serve",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flyve-mdm/web-mdm-dashboard.git"
+    "url": "git+https://github.com/UPC/ravada.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/flyve-mdm/web-mdm-dashboard/issues"
+    "url": "https://github.com/UPC/ravada/issues"
   },
-  "homepage": "http://flyve.org/web-mdm-dashboard/",
+  "homepage": "https://ravada.upc.edu/",
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",

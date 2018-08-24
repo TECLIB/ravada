@@ -1,17 +1,12 @@
 ---
 ---
 
-{% assign name = site.github.project_title | replace: "flyve-mdm-", "" %}   
-{% assign name = name | replace: "-", " " %} 
-{% assign name = name | replace: "android", " " %} 
-{% assign name = name | replace: "ios", " " %} 
-{% assign name = name | replace: "blackberry", " " %} 
-{% assign name = name | replace: "windows", " " %} 
+{% assign name = site.github.project_title %}
 
 {
   "short_name": "{{ name }}",
   "name": "{{ name }}",
-  "icons": [  
+  "icons": [
     {
       "src":"{{ '/images/icon-192x192.png' | absolute_url }}",
       "sizes": "192x192",
@@ -21,7 +16,7 @@
       "src":"{{ '/images/icon-256x256.png' | absolute_url }}",
       "sizes": "256x256",
       "type": "image/png"
-    }, 
+    },
     {
       "src":"{{ '/images/icon-384x384.png' | absolute_url }}",
       "sizes": "384x384",
@@ -34,8 +29,8 @@
     }
   ],
   "start_url": "{{ site.baseurl }}/?utm_source=homescreen",
-  "background_color": "#FFF",
-  "theme_color": "#158784",
+  "background_color": "#fff",
+  "theme_color": "#17bc9c",
   "display": "standalone",
   "orientation": "portrait"
 }

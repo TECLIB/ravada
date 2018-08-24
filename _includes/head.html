@@ -3,8 +3,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {% assign name = site.github.project_title | replace: "flyve-mdm-", "" %}
-  {% assign name = name | replace: "-", " " %}
+  {% assign name = site.github.project_title %}
 
   {% if page.layout == 'post' %}
     {% assign title = page.title %}
@@ -15,7 +14,7 @@
     />
 
     {% else %}
-      {% assign title = name%}
+      {% assign title = name %}
       <meta property="og:type" content="website" />
   {% endif %}
 
@@ -28,27 +27,15 @@
   <meta name="description" content="{{ page.excerpt | default: site.github.project_tagline | strip_html | normalize_whitespace | truncate: 160 | escape }}">
   <meta name="og:description" content="{{ page.excerpt | default: site.github.project_tagline | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
-  <meta name="theme-color" content="#158784">
-
-  {% if page.layout == 'codeDocumentation' %}
-    <link rel="stylesheet" href="{{ 'css/codeDocumentation.css' | absolute_url }}" />
-  {% endif %}
+  <meta name="theme-color" content="#17bc9c">
 
   <!-- fontawesome brand icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-
-  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
-<!--
-  <link rel="stylesheet" href="{{ "/css/brands.min.css" | absolute_url }}">
-  <link rel="stylesheet" href="{{ "/css/fontawesome.min.css" | absolute_url }}"> -->
-
-
-  <link rel="stylesheet" href="{{ "/css/flyve-mdm.min.css" | absolute_url }}">
+  <link rel="stylesheet" href="{{ "/css/ravada.css" | absolute_url }}">
   <link rel="stylesheet" href="{{ "/css/main.css" | absolute_url }}">
   <link rel="stylesheet" href="{{ 'css/syntax.css' | absolute_url }}" />
   <link rel="icon" href="{{ "/images/favicon.png" | absolute_url }}">
-
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | absolute_url }}">
