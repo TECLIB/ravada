@@ -26,8 +26,7 @@ permalink: projects
     {% endif %}
         <div class="container">
 
-          {% assign name = repositorie.name | replace: "flyve-mdm-", "" %}
-          {% assign name = name | replace: "-", " " %}
+          {% assign name = repositorie.name %}
 
           <h3>{{ name }}</h3>
           <p>{{ repositorie.description }}</p>
