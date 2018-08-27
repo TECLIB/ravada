@@ -11,6 +11,8 @@
 './2_level_tools/mixins';
 
 // Level 3
+@import
+'./3_level_generic/winstrap/main';
 
 // Level 4
 @import
@@ -43,5 +45,4 @@
 // Level 6
 @import
 './6_level_utilities/jumbotron',
-'./6_level_utilities/winstrap/main',
 './6_level_utilities/row-eq-height';
