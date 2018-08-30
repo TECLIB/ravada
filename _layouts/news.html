@@ -4,8 +4,7 @@ layout: default
 
 <div class="sub-header">
   <div class="container">
-    {% assign name = site.github.project_title | replace: "flyve-mdm-", "" %}
-    {% assign name = name | replace: "-", " " %}
+    {% assign name = site.github.project_title | replace: "-", " " %}
     <span class="sub-header__text-primary">
       {{ name }}
     </span>

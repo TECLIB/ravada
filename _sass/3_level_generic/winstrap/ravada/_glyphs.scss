@@ -1068,12 +1068,12 @@ $glyphs: (
 // Checkbox & Radio Buttons
 .checkbox label {
     input:indeterminate ~ span::before {
-        content: "■"; // Use "\E73C" when we get FlyveUI Symbols font
+        content: "■"; // Use "\E73C" when we get RavadaUI Symbols font
     }
 }
 
 .radio label {
     input:checked ~ span::before {
-        content: "•"; // Replace this when we get FlyveUI Symbols font
+        content: "•"; // Replace this when we get RavadaUI Symbols font
     }
 }
