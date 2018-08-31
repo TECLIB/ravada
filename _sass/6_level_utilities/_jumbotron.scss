@@ -1,7 +1,14 @@
 .jumbotron {
   &.theme-dark {
-    h3 {
-      padding-top: 0;
+    padding: 2% 0 2% 0;
+
+    .type-h2 {
+      padding: 1% 0 2% 0;
     }
+
+    .type-p1 {
+      padding: 1% 0 2% 0;
+    }
+    
   }
 }
