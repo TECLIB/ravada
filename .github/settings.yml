@@ -1,7 +1,7 @@
 repository:
   name: ravada
   description: Remote Virtual Desktops Manager
-  homepage: https://ravada.upc.edu/
+  homepage: https://teclib.github.io/ravada/
   topics: vdi, kmi, libvirt
   private: false
   has_issues: true
