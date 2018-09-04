@@ -8,8 +8,8 @@
 // Load core variables and mixins
 // --------------------------------------------------
 
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 
 //
@@ -23,14 +23,14 @@
 .btn-info,
 .btn-warning,
 .btn-danger {
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
-  $shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+  $shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
   @include box-shadow($shadow);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
 
   // Reset the shadow
   &:active,
   &.active {
-    @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
   }
 
   &.disabled,
@@ -88,7 +88,11 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { @include btn-styles($btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
+.btn-default {
+  @include btn-styles($btn-default-bg);
+  border-color: #ccc;
+  text-shadow: 0 1px 0 #fff;
+}
 .btn-primary { @include btn-styles($btn-primary-bg); }
 .btn-success { @include btn-styles($btn-success-bg); }
 .btn-info    { @include btn-styles($btn-info-bg); }
@@ -102,7 +106,7 @@
 
 .thumbnail,
 .img-thumbnail {
-  @include box-shadow(0 1px 2px rgba(0,0,0,.075));
+  @include box-shadow(0 1px 2px rgba(0, 0, 0, .075));
 }
 
 
@@ -115,6 +119,7 @@
   @include gradient-vertical($start-color: $dropdown-link-hover-bg, $end-color: darken($dropdown-link-hover-bg, 5%));
   background-color: darken($dropdown-link-hover-bg, 5%);
 }
+
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
@@ -129,21 +134,22 @@
 
 // Default navbar
 .navbar-default {
+  $shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
   @include gradient-vertical($start-color: lighten($navbar-default-bg, 10%), $end-color: $navbar-default-bg);
   @include reset-filter; // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
-  border-radius: $navbar-border-radius;
-  $shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 5px rgba(0,0,0,.075);
   @include box-shadow($shadow);
+  border-radius: $navbar-border-radius;
 
   .navbar-nav > .open > a,
   .navbar-nav > .active > a {
     @include gradient-vertical($start-color: darken($navbar-default-link-active-bg, 5%), $end-color: darken($navbar-default-link-active-bg, 2%));
-    @include box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
+    @include box-shadow(inset 0 3px 9px rgba(0, 0, 0, .075));
   }
 }
+
 .navbar-brand,
 .navbar-nav > li > a {
-  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .25);
 }
 
 // Inverted navbar
@@ -151,15 +157,16 @@
   @include gradient-vertical($start-color: lighten($navbar-inverse-bg, 10%), $end-color: $navbar-inverse-bg);
   @include reset-filter; // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered; see https://github.com/twbs/bootstrap/issues/10257
   border-radius: $navbar-border-radius;
+
   .navbar-nav > .open > a,
   .navbar-nav > .active > a {
     @include gradient-vertical($start-color: $navbar-inverse-link-active-bg, $end-color: lighten($navbar-inverse-link-active-bg, 2.5%));
-    @include box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
+    @include box-shadow(inset 0 3px 9px rgba(0, 0, 0, .25));
   }
 
   .navbar-brand,
   .navbar-nav > li > a {
-    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
   }
 }
 
@@ -176,8 +183,8 @@
     &,
     &:hover,
     &:focus {
-      color: #fff;
       @include gradient-vertical($start-color: $dropdown-link-active-bg, $end-color: darken($dropdown-link-active-bg, 5%));
+      color: #fff;
     }
   }
 }
@@ -189,9 +196,9 @@
 
 // Common styles
 .alert {
-  text-shadow: 0 1px 0 rgba(255,255,255,.2);
-  $shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+  $shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
   @include box-shadow($shadow);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .2);
 }
 
 // Mixin for generating new styles
@@ -240,15 +247,16 @@
 // --------------------------------------------------
 
 .list-group {
+  @include box-shadow(0 1px 2px rgba(0, 0, 0, .075));
   border-radius: $border-radius-base;
-  @include box-shadow(0 1px 2px rgba(0,0,0,.075));
 }
+
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
-  text-shadow: 0 -1px 0 darken($list-group-active-bg, 10%);
   @include gradient-vertical($start-color: $list-group-active-bg, $end-color: darken($list-group-active-bg, 7.5%));
   border-color: darken($list-group-active-border, 7.5%);
+  text-shadow: 0 -1px 0 darken($list-group-active-bg, 10%);
 
   .badge {
     text-shadow: none;
@@ -262,7 +270,7 @@
 
 // Common styles
 .panel {
-  @include box-shadow(0 1px 2px rgba(0,0,0,.05));
+  @include box-shadow(0 1px 2px rgba(0, 0, 0, .05));
 }
 
 // Mixin for generating new styles
@@ -284,8 +292,8 @@
 // --------------------------------------------------
 
 .well {
+  $shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
   @include gradient-vertical($start-color: darken($well-bg, 5%), $end-color: $well-bg);
-  border-color: darken($well-bg, 10%);
-  $shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
   @include box-shadow($shadow);
+  border-color: darken($well-bg, 10%);
 }

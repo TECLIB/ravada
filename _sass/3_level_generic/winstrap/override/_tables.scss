@@ -1,5 +1,10 @@
 //override default bootstrap padding on table elements
-.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
   padding: spacing(xxs, -2) spacing(xxs);
 }
 
@@ -11,22 +16,22 @@
   }
 
   thead {
-
     tr th {
       @include type(t9);
-      color: $color-type-secondary;
       border-bottom: 1px solid $color-neutral-low;
+      color: $color-type-secondary;
       padding-bottom: spacing(xxs, +1);
     }
-
   }
 
   //Default Striped table
   &.table-striped {
     > tbody {
-      tr td, tr th {
+      tr td,
+      tr th {
         border-bottom: 1px solid $color-dim-mid;
       }
+
       > tr:nth-of-type(odd) {
         background: transparent;
       }
@@ -51,13 +56,13 @@
 
     &.table-striped {
       > tbody {
-        tr td, tr th {
+        tr td,
+        tr th {
           border-bottom: 1px solid $color-dim-mid-alt;
         }
       }
     }
   }
-
 }
 
 .table-responsive {
@@ -65,9 +70,7 @@
 }
 //Add margin bottom for IE scrollbar
 @media (min-width: $screen-md-min) {
-
   .table-responsive {
     padding-bottom: 0;
   }
-
 }

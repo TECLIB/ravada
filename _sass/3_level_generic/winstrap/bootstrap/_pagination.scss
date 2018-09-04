@@ -2,32 +2,35 @@
 // Pagination (multiple pages)
 // --------------------------------------------------
 .pagination {
-  display: inline-block;
-  padding-left: 0;
-  margin: $line-height-computed 0;
   border-radius: $border-radius-base;
+  display: inline-block;
+  margin: $line-height-computed 0;
+  padding-left: 0;
 
   > li {
     display: inline; // Remove list-style and block-level defaults
+
     > a,
     > span {
-      position: relative;
-      float: left; // Collapse white-space
-      padding: $padding-base-vertical $padding-base-horizontal;
-      line-height: $line-height-base;
-      text-decoration: none;
-      color: $pagination-color;
       background-color: $pagination-bg;
       border: 1px solid $pagination-border;
+      color: $pagination-color;
+      float: left; // Collapse white-space
+      line-height: $line-height-base;
       margin-left: -1px;
+      padding: $padding-base-vertical $padding-base-horizontal;
+      position: relative;
+      text-decoration: none;
     }
+
     &:first-child {
       > a,
       > span {
-        margin-left: 0;
         @include border-left-radius($border-radius-base);
+        margin-left: 0;
       }
     }
+
     &:last-child {
       > a,
       > span {
@@ -40,10 +43,10 @@
   > li > span {
     &:hover,
     &:focus {
-      z-index: 2;
-      color: $pagination-hover-color;
       background-color: $pagination-hover-bg;
       border-color: $pagination-hover-border;
+      color: $pagination-hover-color;
+      z-index: 2;
     }
   }
 
@@ -52,11 +55,11 @@
     &,
     &:hover,
     &:focus {
-      z-index: 3;
-      color: $pagination-active-color;
       background-color: $pagination-active-bg;
       border-color: $pagination-active-border;
+      color: $pagination-active-color;
       cursor: default;
+      z-index: 3;
     }
   }
 
@@ -67,9 +70,9 @@
     > a,
     > a:hover,
     > a:focus {
-      color: $pagination-disabled-color;
       background-color: $pagination-disabled-bg;
       border-color: $pagination-disabled-border;
+      color: $pagination-disabled-color;
       cursor: $cursor-disabled;
     }
   }

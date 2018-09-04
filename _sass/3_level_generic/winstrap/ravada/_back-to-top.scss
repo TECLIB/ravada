@@ -4,53 +4,53 @@
 $backtotop-button-size:  48px;
 
 .back-to-top {
-    visibility: hidden;
-    width: $backtotop-button-size;
-    height: $backtotop-button-size;
-    padding: spacing(xxs, -2) spacing(xxs) spacing(xxs);
-    opacity: 0;
-    @include translate(0, ($backtotop-button-size / 2));
-    @include transition(opacity .3s, transform .3s, -webkit-transform .3s);
+  @include translate(0, ($backtotop-button-size / 2));
+  @include transition(opacity .3s, transform .3s, -webkit-transform .3s);
+  height: $backtotop-button-size;
+  opacity: 0;
+  padding: spacing(xxs, -2) spacing(xxs) spacing(xxs);
+  visibility: hidden;
+  width: $backtotop-button-size;
 
-    // Added by Bootstrap Affix when scrolling
-    &.affix {
-        visibility: visible;
-        opacity: 1;
-        z-index: $zindex-navbar-fixed; // same level as a fixed nav bar
-        right: spacing(xs);
-        bottom: spacing(xxs);
-        @include translate(0, 0);
-    }
+  // Added by Bootstrap Affix when scrolling
+  &.affix {
+    @include translate(0, 0);
+    bottom: spacing(xxs);
+    opacity: 1;
+    right: spacing(xs);
+    visibility: visible;
+    z-index: $zindex-navbar-fixed; // same level as a fixed nav bar
+  }
 
-    [class*="glyph-"] {
-        font-size: ($backtotop-button-size / 2);
-    }
+  [class*='glyph-'] {
+    font-size: ($backtotop-button-size / 2);
+  }
 
-    //
-    // Colors
-    //
+  //
+  // Colors
+  //
+  &,
+  &:focus {
+    background: $color-dim-mid;
+    color: $color-vivid-low;
+  }
+
+  &:hover {
+    background: $color-neutral-mid;
+    color: $color-vivid-high;
+  }
+
+  // On dark surface
+  &.theme-alt {
     &,
     &:focus {
-        color: $color-vivid-low;
-        background: $color-dim-mid;
+      background: $color-dim-mid-alt;
+      color: $color-vivid-low-alt;
     }
 
     &:hover {
-        color: $color-vivid-high;
-        background: $color-neutral-mid;
+      background: $color-neutral-mid-alt;
+      color: $color-vivid-high-alt;
     }
-
-    // On dark surface
-    &.theme-alt {
-        &,
-        &:focus {
-            color: $color-vivid-low-alt;
-            background: $color-dim-mid-alt;
-        }
-
-        &:hover {
-            color: $color-vivid-high-alt;
-            background: $color-neutral-mid-alt;
-        }
-    }
+  }
 }

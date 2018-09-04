@@ -7,16 +7,16 @@
 // -------------------------
 
 .alert {
-  padding: $alert-padding;
-  margin-bottom: $line-height-computed;
   border: 1px solid transparent;
   border-radius: $alert-border-radius;
+  margin-bottom: $line-height-computed;
+  padding: $alert-padding;
 
   // Headings for larger alerts
   h4 {
-    margin-top: 0;
     // Specified for the h4 to prevent conflicts of changing $headings-color
     color: inherit;
+    margin-top: 0;
   }
 
   // Provide class for links that match alerts
@@ -45,10 +45,10 @@
 
   // Adjust close link position
   .close {
-    position: relative;
-    top: -2px;
-    right: -21px;
     color: inherit;
+    position: relative;
+    right: -21px;
+    top: -2px;
   }
 }
 

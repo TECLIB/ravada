@@ -6,12 +6,14 @@
 table {
   background-color: $table-bg;
 }
+
 caption {
-  padding-top: $table-cell-padding;
-  padding-bottom: $table-cell-padding;
   color: $text-muted;
+  padding-bottom: $table-cell-padding;
+  padding-top: $table-cell-padding;
   text-align: left;
 }
+
 th {
   text-align: left;
 }
@@ -20,9 +22,10 @@ th {
 // Baseline styles
 
 .table {
-  width: 100%;
-  max-width: 100%;
   margin-bottom: $line-height-computed;
+  max-width: 100%;
+  width: 100%;
+
   // Cells
   > thead,
   > tbody,
@@ -30,18 +33,20 @@ th {
     > tr {
       > th,
       > td {
-        padding: $table-cell-padding;
-        line-height: $line-height-base;
-        vertical-align: top;
         border-top: 1px solid $table-border-color;
+        line-height: $line-height-base;
+        padding: $table-cell-padding;
+        vertical-align: top;
       }
     }
   }
+
   // Bottom align for column headings
   > thead > tr > th {
-    vertical-align: bottom;
     border-bottom: 2px solid $table-border-color;
+    vertical-align: bottom;
   }
+
   // Remove top border from thead by default
   > caption + thead,
   > colgroup + thead,
@@ -53,6 +58,7 @@ th {
       }
     }
   }
+
   // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 2px solid $table-border-color;
@@ -87,6 +93,7 @@ th {
 
 .table-bordered {
   border: 1px solid $table-border-color;
+
   > thead,
   > tbody,
   > tfoot {
@@ -97,6 +104,7 @@ th {
       }
     }
   }
+
   > thead > tr {
     > th,
     > td {
@@ -133,17 +141,18 @@ th {
 // Reset default table behavior
 
 table col[class*="col-"] {
-  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
-  float: none;
   display: table-column;
+  float: none;
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
 }
+
 table {
   td,
   th {
     &[class*="col-"] {
-      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
-      float: none;
       display: table-cell;
+      float: none;
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
     }
   }
 }
@@ -169,15 +178,15 @@ table {
 // will display normally.
 
 .table-responsive {
+  min-height: .01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
   overflow-x: auto;
-  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
 
   @media screen and (max-width: $screen-xs-max) {
-    width: 100%;
-    margin-bottom: ($line-height-computed * 0.75);
-    overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid $table-border-color;
+    margin-bottom: ($line-height-computed * .75);
+    overflow-y: hidden;
+    width: 100%;
 
     // Tighten up spacing
     > .table {
@@ -209,6 +218,7 @@ table {
           > td:first-child {
             border-left: 0;
           }
+
           > th:last-child,
           > td:last-child {
             border-right: 0;

@@ -7,8 +7,8 @@ $toggle-switch-indicator-size:  10px;
 
 // Button filter
 .button-filter {
-  border-color: $color-vivid-low;
   background: none;
+  border-color: $color-vivid-low;
 
   // Clear filter
   .glyph-clear {
@@ -17,292 +17,292 @@ $toggle-switch-indicator-size:  10px;
 }
 
 a.link-on-light {
-    text-decoration: underline;
-    color: $color-type-primary;
+  color: $color-type-primary;
+  text-decoration: underline;
 }
 
 a.link-on-dark {
-    text-decoration: underline;
-    color: $color-type-primary-alt;
+  color: $color-type-primary-alt;
+  text-decoration: underline;
 }
 
 // Toggle switch button
-.btn[data-toggle="button"].btn-toggle-switch {
-    position: relative;
-    width: $toggle-switch-width;
-    min-width: $toggle-switch-width;
-    max-width: $toggle-switch-width;
-    height: $toggle-switch-height;
-    border-radius: $toggle-switch-height / 2;
-    border-width: 2px;
-    border-style: solid;
-	padding: 0;
+.btn[data-toggle='button'].btn-toggle-switch {
+  border-radius: $toggle-switch-height / 2;
+  border-style: solid;
+  border-width: 2px;
+  height: $toggle-switch-height;
+  max-width: $toggle-switch-width;
+  min-width: $toggle-switch-width;
+  padding: 0;
+  position: relative;
+  width: $toggle-switch-width;
 
-    .stateLabel {
-        position: absolute;
-        top: 1px;
-        left: 54px;
-        line-height: 1;
-        @include type(t7);
+  .stateLabel {
+    @include type(t7);
+    left: 54px;
+    line-height: 1;
+    position: absolute;
+    top: 1px;
+  }
+
+  .stateLabel-on {
+    display: none;
+  }
+
+  // Indicator circle
+  &::before {
+    border-radius: $toggle-switch-indicator-size / 2;
+    content: '';
+    height: $toggle-switch-indicator-size;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    transition: left .1s;
+    width: $toggle-switch-indicator-size;
+  }
+
+  &:active {
+    @include box-shadow(none);
+  }
+
+  &.active {
+    &::before {
+      left: 27px;
     }
 
     .stateLabel-on {
-        display: none;
+      display: block;
     }
 
-    // Indicator circle
+    .stateLabel-off {
+      display: none;
+    }
+  }
+
+  //
+  // Colors
+  //
+
+  // Default theme
+  &,
+  &.theme-default {
+    background-color: transparent;
+    border-color: $color-vivid-mid;
+
     &::before {
-        content: '';
-        position: absolute;
-        width: $toggle-switch-indicator-size;
-        height: $toggle-switch-indicator-size;
-        top: 3px;
-        left: 3px;
-        border-radius: $toggle-switch-indicator-size / 2;
-		transition: left 0.1s;
+      background-color: $color-vivid-mid;
     }
 
-    &:active {
-        @include box-shadow(none);
+    .stateLabel {
+      color: $color-type-primary;
+    }
+
+    &:hover {
+      border-color: $color-vivid-high;
+
+      &::before {
+        background-color: $color-vivid-high;
+      }
     }
 
     &.active {
-        &::before {
-            left: 27px;
-        }
+      background-color: $color-accent;
+      border-color: transparent;
 
-        .stateLabel-on {
-            display: block;
-        }
+      &::before {
+        background-color: $color-bg-light-vivid-high;
+      }
 
-        .stateLabel-off {
-            display: none;
-        }
+      &:hover {
+        background-color: lighten($color-accent-vivid-high, 10%);
+      }
     }
 
-    //
-    // Colors
-    //
+    &:disabled {
+      border-color: $color-neutral-low;
 
-    // Default theme
-    &,
-    &.theme-default {
-        background-color: transparent;
-        border-color: $color-vivid-mid;
+      &::before {
+        background-color: $color-neutral-low;
+      }
 
-        &::before {
-            background-color: $color-vivid-mid;
-        }
+      .stateLabel {
+        color: $color-type-disabled;
+      }
 
-        .stateLabel {
-            color: $color-type-primary;
-        }
+      &.active {
+        background-color: $color-neutral-low;
+        border-color: transparent;
+      }
+    }
+  }
 
-        &:hover {
-            border-color: $color-vivid-high;
+  // Alt theme
+  &.theme-alt {
+    background-color: transparent;
+    border-color: $color-vivid-mid-alt;
 
-            &::before {
-                background-color: $color-vivid-high;
-            }
-        }
-
-        &.active {
-            background-color: $color-accent;
-            border-color: transparent;
-
-            &::before {
-                background-color: $color-bg-light-vivid-high;
-            }
-
-            &:hover {
-                background-color: lighten($color-accent-vivid-high, 10%);
-            }
-        }
-
-        &:disabled {
-            border-color: $color-neutral-low;
-
-            &::before {
-                background-color: $color-neutral-low;
-            }
-
-            .stateLabel {
-                color: $color-type-disabled;
-            }
-
-            &.active {
-                border-color: transparent;
-                background-color: $color-neutral-low;
-            }
-        }
+    &::before {
+      background-color: $color-vivid-mid-alt;
     }
 
-    // Alt theme
-    &.theme-alt {
-        background-color: transparent;
-        border-color: $color-vivid-mid-alt;
-
-        &::before {
-            background-color: $color-vivid-mid-alt;
-        }
-
-        .stateLabel {
-            color: $color-type-primary-alt;
-        }
-
-        &:hover {
-            border-color: $color-vivid-high-alt;
-
-            &::before {
-                background-color: $color-vivid-high-alt;
-            }
-        }
-
-        &.active {
-            background-color: $color-accent-vivid-high;
-            border-color: transparent;
-
-            &::before {
-                background-color: $color-bg-light-vivid-high;
-            }
-
-            &:hover {
-                background-color: lighten($color-accent-vivid-high, 10%);
-            }
-        }
-
-        &:disabled {
-            border-color: $color-neutral-low-alt;
-
-            &::before {
-                background-color: $color-neutral-low-alt;
-            }
-
-            .stateLabel {
-                color: $color-type-disabled-alt;
-            }
-
-            &.active {
-                border-color: transparent;
-                background-color: $color-neutral-low-alt;
-            }
-        }
+    .stateLabel {
+      color: $color-type-primary-alt;
     }
 
-    // On light surface
-    &.theme-light,
-    &.theme-on-img-light {
-        background-color: transparent;
-        border-color: $color-vivid-mid;
+    &:hover {
+      border-color: $color-vivid-high-alt;
 
-        &::before {
-            background-color: $color-vivid-mid;
-        }
-
-        .stateLabel {
-            color: $color-type-primary;
-        }
-
-        &:hover {
-            border-color: $color-vivid-high;
-
-            &::before {
-                background-color: $color-vivid-high;
-            }
-        }
-
-        &.active {
-            background-color: $color-neutral-high;
-            border-color: $color-vivid-high;
-
-            &::before {
-                background-color: $color-bg-dark-vivid-high;
-            }
-
-            &:hover {
-                background-color: lighten($color-neutral-high, 10%);
-                border-color: lighten($color-vivid-high, 10%);
-
-                &::before {
-                    background-color: lighten($color-bg-dark-vivid-high, 10%);
-                }
-            }
-        }
-
-        &:disabled {
-            border-color: $color-neutral-low;
-
-            &::before {
-                background-color: $color-neutral-low;
-            }
-
-            .stateLabel {
-                color: $color-type-disabled;
-            }
-
-            &.active {
-                border-color: transparent;
-                background-color: $color-neutral-low;
-            }
-        }
+      &::before {
+        background-color: $color-vivid-high-alt;
+      }
     }
 
-    // On dark surface
-    &.theme-dark,
-    &.theme-on-img-dark,
-    &.theme-on-color {
-        background-color: transparent;
-        border-color: $color-vivid-mid-alt;
+    &.active {
+      background-color: $color-accent-vivid-high;
+      border-color: transparent;
+
+      &::before {
+        background-color: $color-bg-light-vivid-high;
+      }
+
+      &:hover {
+        background-color: lighten($color-accent-vivid-high, 10%);
+      }
+    }
+
+    &:disabled {
+      border-color: $color-neutral-low-alt;
+
+      &::before {
+        background-color: $color-neutral-low-alt;
+      }
+
+      .stateLabel {
+        color: $color-type-disabled-alt;
+      }
+
+      &.active {
+        background-color: $color-neutral-low-alt;
+        border-color: transparent;
+      }
+    }
+  }
+
+  // On light surface
+  &.theme-light,
+  &.theme-on-img-light {
+    background-color: transparent;
+    border-color: $color-vivid-mid;
+
+    &::before {
+      background-color: $color-vivid-mid;
+    }
+
+    .stateLabel {
+      color: $color-type-primary;
+    }
+
+    &:hover {
+      border-color: $color-vivid-high;
+
+      &::before {
+        background-color: $color-vivid-high;
+      }
+    }
+
+    &.active {
+      background-color: $color-neutral-high;
+      border-color: $color-vivid-high;
+
+      &::before {
+        background-color: $color-bg-dark-vivid-high;
+      }
+
+      &:hover {
+        background-color: lighten($color-neutral-high, 10%);
+        border-color: lighten($color-vivid-high, 10%);
 
         &::before {
-            background-color: $color-vivid-mid-alt;
+          background-color: lighten($color-bg-dark-vivid-high, 10%);
         }
-
-        .stateLabel {
-            color: $color-type-primary-alt;
-        }
-
-        &:hover {
-            border-color: $color-vivid-high-alt;
-
-            &::before {
-                background-color: $color-vivid-high-alt;
-            }
-        }
-
-        &.active {
-            background-color: $color-neutral-high-alt;
-            border-color: $color-vivid-high-alt;
-
-            &::before {
-                background-color: $color-bg-light-vivid-high;
-            }
-
-            &:hover {
-                background-color: darken($color-neutral-high-alt, 10%);
-                border-color: darken($color-vivid-high-alt, 10%);
-
-                &::before {
-                    background-color: darken($color-bg-light-vivid-high, 10%);
-                }
-            }
-        }
-
-        &:disabled {
-            border-color: $color-neutral-low-alt;
-
-            &::before {
-                background-color: $color-neutral-low-alt;
-            }
-
-            .stateLabel {
-                color: $color-type-disabled-alt;
-            }
-
-            &.active {
-                border-color: transparent;
-                background-color: $color-neutral-low-alt;
-            }
-        }
+      }
     }
+
+    &:disabled {
+      border-color: $color-neutral-low;
+
+      &::before {
+        background-color: $color-neutral-low;
+      }
+
+      .stateLabel {
+        color: $color-type-disabled;
+      }
+
+      &.active {
+        background-color: $color-neutral-low;
+        border-color: transparent;
+      }
+    }
+  }
+
+  // On dark surface
+  &.theme-dark,
+  &.theme-on-img-dark,
+  &.theme-on-color {
+    background-color: transparent;
+    border-color: $color-vivid-mid-alt;
+
+    &::before {
+      background-color: $color-vivid-mid-alt;
+    }
+
+    .stateLabel {
+      color: $color-type-primary-alt;
+    }
+
+    &:hover {
+      border-color: $color-vivid-high-alt;
+
+      &::before {
+        background-color: $color-vivid-high-alt;
+      }
+    }
+
+    &.active {
+      background-color: $color-neutral-high-alt;
+      border-color: $color-vivid-high-alt;
+
+      &::before {
+        background-color: $color-bg-light-vivid-high;
+      }
+
+      &:hover {
+        background-color: darken($color-neutral-high-alt, 10%);
+        border-color: darken($color-vivid-high-alt, 10%);
+
+        &::before {
+          background-color: darken($color-bg-light-vivid-high, 10%);
+        }
+      }
+    }
+
+    &:disabled {
+      border-color: $color-neutral-low-alt;
+
+      &::before {
+        background-color: $color-neutral-low-alt;
+      }
+
+      .stateLabel {
+        color: $color-type-disabled-alt;
+      }
+
+      &.active {
+        background-color: $color-neutral-low-alt;
+        border-color: transparent;
+      }
+    }
+  }
 }
