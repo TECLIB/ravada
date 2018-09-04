@@ -4,11 +4,11 @@
 
 
 .jumbotron {
-  padding-top:    $jumbotron-padding;
-  padding-bottom: $jumbotron-padding;
-  margin-bottom: $jumbotron-padding;
-  color: $jumbotron-color;
   background-color: $jumbotron-bg;
+  color: $jumbotron-color;
+  margin-bottom: $jumbotron-padding;
+  padding-bottom: $jumbotron-padding;
+  padding-top: $jumbotron-padding;
 
   h1,
   .h1 {
@@ -16,9 +16,9 @@
   }
 
   p {
-    margin-bottom: ($jumbotron-padding / 2);
     font-size: $jumbotron-font-size;
     font-weight: 200;
+    margin-bottom: ($jumbotron-padding / 2);
   }
 
   > hr {
@@ -37,8 +37,8 @@
   }
 
   @media screen and (min-width: $screen-sm-min) {
-    padding-top:    ($jumbotron-padding * 1.6);
     padding-bottom: ($jumbotron-padding * 1.6);
+    padding-top:    ($jumbotron-padding * 1.6);
 
     .container &,
     .container-fluid & {

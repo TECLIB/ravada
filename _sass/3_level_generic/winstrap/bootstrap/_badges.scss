@@ -5,18 +5,18 @@
 
 // Base class
 .badge {
-  display: inline-block;
-  min-width: 10px;
-  padding: 3px 7px;
-  font-size: $font-size-small;
-  font-weight: $badge-font-weight;
-  color: $badge-color;
-  line-height: $badge-line-height;
-  vertical-align: middle;
-  white-space: nowrap;
-  text-align: center;
   background-color: $badge-bg;
   border-radius: $badge-border-radius;
+  color: $badge-color;
+  display: inline-block;
+  font-size: $font-size-small;
+  font-weight: $badge-font-weight;
+  line-height: $badge-line-height;
+  min-width: 10px;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
 
   // Empty badges collapse automatically (not available in IE8)
   &:empty {
@@ -31,8 +31,8 @@
 
   .btn-xs &,
   .btn-group-xs > .btn & {
-    top: 0;
     padding: 1px 5px;
+    top: 0;
   }
 
   // [converter] extracted a& to a.badge
@@ -40,8 +40,8 @@
   // Account for badges in navs
   .list-group-item.active > &,
   .nav-pills > .active > a > & {
-    color: $badge-active-color;
     background-color: $badge-active-bg;
+    color: $badge-active-color;
   }
 
   .list-group-item > & {
@@ -62,7 +62,7 @@ a.badge {
   &:hover,
   &:focus {
     color: $badge-link-hover-color;
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
   }
 }

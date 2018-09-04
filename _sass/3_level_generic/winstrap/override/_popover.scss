@@ -4,50 +4,50 @@
 $popover-position: spacing(xxxs);
 
 .popover {
-    padding: 0;
-    @include box-shadow(none);
-    @include type(t7, set-line-height);
+  @include box-shadow(none);
+  @include type(t7, set-line-height);
+  padding: 0;
 
-    &.top       { margin-top: -$popover-position; }
-    &.right     { margin-left: $popover-position; }
-    &.bottom    { margin-top: $popover-position; }
-    &.left      { margin-left: -$popover-position; }
+  &.top       { margin-top: -$popover-position; }
+  &.right     { margin-left: $popover-position; }
+  &.bottom    { margin-top: $popover-position; }
+  &.left      { margin-left: -$popover-position; }
 
-    .arrow,
-    .popover-title {
-        display: none;
+  .arrow,
+  .popover-title {
+    display: none;
+  }
+
+  .popover-content {
+    min-width: 128px;
+    padding: spacing(xxs, -2) spacing(xxs) spacing(xxs);
+
+    .btn {
+      float: right;
+      margin: spacing(xxs, 5) 0 spacing(xxs);
     }
+  }
 
-    .popover-content {
-        min-width: 128px;
-        padding: spacing(xxs, -2) spacing(xxs) spacing(xxs);
+  //
+  // Colors
+  //
 
-        .btn {
-            margin: spacing(xxs, 5) 0 spacing(xxs);
-            float: right;
-        }
-    }
+  // Default theme and on light surface
+  &,
+  &.theme-default,
+  &.theme-light {
+    background-color: $color-bg-light-vivid-mid;
+    border-color: $color-neutral-mid;
+    color: $color-type-primary;
+  }
 
-    //
-    // Colors
-    //
-
-    // Default theme and on light surface
-    &,
-    &.theme-default,
-    &.theme-light {
-        color: $color-type-primary;
-        background-color: $color-bg-light-vivid-mid;
-        border-color: $color-neutral-mid;
-    }
-
-    // Alt theme and on dark surface
-    &.theme-alt,
-    &.theme-dark,
-    &.theme-on-color,
-    &.theme-on-img-dark {
-        color: $color-type-primary-alt;
-        background-color: $color-bg-dark-vivid-mid;
-        border-color: $color-neutral-mid-alt;
-    }
+  // Alt theme and on dark surface
+  &.theme-alt,
+  &.theme-dark,
+  &.theme-on-color,
+  &.theme-on-img-dark {
+    background-color: $color-bg-dark-vivid-mid;
+    border-color: $color-neutral-mid-alt;
+    color: $color-type-primary-alt;
+  }
 }

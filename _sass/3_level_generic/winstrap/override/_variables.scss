@@ -1,7 +1,7 @@
 // When true, asset path helpers are used, otherwise the regular CSS `url()` is used.
 // When there no function is defined, `fn('')` is parsed as string that equals the right hand side
 // NB: in Sass 3.3 there is a native function: function-exists(twbs-font-path)
-$bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
+$bootstrap-sass-asset-helper: (twbs-font-path('') != unquote('twbs-font-path("")')) !default;
 
 //
 // Variables
@@ -48,9 +48,9 @@ $link-hover-decoration: underline !default;
 //## Font, line-height, and color for body text, headings, and more.
 
 $font-family-sans-serif:  $font-family-normal !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-serif:       Georgia, 'Times New Roman', Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   "Consolas", "Menlo", "Monaco", "Courier New", monospace !default;
+$font-family-monospace:   'Consolas', 'Menlo', 'Monaco', 'Courier New', monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
 $font-size-base:          15px !default;
@@ -70,12 +70,12 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
 
 // [converter] If $bootstrap-sass-asset-helper if used, provide path relative to the assets load path.
 // [converter] This is because some asset helpers, such as Sprockets, do not work with file-relative paths.
-$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+$icon-font-path: if($bootstrap-sass-asset-helper, 'bootstrap/', '../fonts/bootstrap/') !default;
 
 //** File name for all font files.
-$icon-font-name:          "glyphicons-halflings-regular" !default;
+$icon-font-name:          'glyphicons-halflings-regular' !default;
 //** Element ID within SVG icon file.
-$icon-font-svg-id:        "glyphicons_halflingsregular" !default;
+$icon-font-svg-id:        'glyphicons_halflingsregular' !default;
 
 
 //== Components
@@ -91,15 +91,15 @@ $padding-large-horizontal:  16px !default;
 $padding-small-vertical:    2px !default;
 $padding-small-horizontal:  7px !default;
 
-$padding-xs-vertical:       0px !default;
+$padding-xs-vertical:       0 !default;
 $padding-xs-horizontal:     5px !default;
 
 $line-height-large:         1.2 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5625 !default;
 
-$border-radius-base:        0px !default;
-$border-radius-large:       0px !default;
-$border-radius-small:       0px !default;
+$border-radius-base:        0 !default;
+$border-radius-large:       0 !default;
+$border-radius-small:       0 !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    $color-white !default;
@@ -523,7 +523,7 @@ $tooltip-max-width:           296px !default;
 $tooltip-color:               $color-type-primary !default;
 //** Tooltip background color
 $tooltip-bg:                  $color-bg-light-vivid-mid !default;
-$tooltip-opacity:             1.0 !default;
+$tooltip-opacity:             1 !default;
 
 //** Tooltip arrow width
 $tooltip-arrow-width:         5px !default;
@@ -555,7 +555,7 @@ $popover-arrow-color:                 $popover-bg !default;
 //** Popover outer arrow width
 $popover-arrow-outer-width:           ($popover-arrow-width + 1) !default;
 //** Popover outer arrow color
-$popover-arrow-outer-color:           fade_in($popover-border-color, 0.05) !default;
+$popover-arrow-outer-color:           fade_in($popover-border-color, .05) !default;
 //** Popover outer arrow fallback color
 $popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%) !default;
 
@@ -605,7 +605,7 @@ $modal-content-fallback-border-color:          $brand-primary !default;
 //** Modal backdrop background color
 $modal-backdrop-bg:           $color-gray !default;
 //** Modal backdrop opacity
-$modal-backdrop-opacity:      0.6 !default;
+$modal-backdrop-opacity:      .6 !default;
 //** Modal header border color
 $modal-header-border-color:   transparent !default;
 //** Modal footer border color
@@ -796,14 +796,14 @@ $breadcrumb-color:              $text-color !default;
 //** Text color of current page in the breadcrumb
 $breadcrumb-active-color:       $text-color !default;
 //** Textual separator for between breadcrumb elements
-$breadcrumb-separator:          "\203a" !default;
+$breadcrumb-separator:          '\203a' !default;
 
 
 //== Carousel
 //
 //##
 
-$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default;
+$carousel-text-shadow:                        0 1px 2px rgba(0, 0, 0, .6) !default;
 
 $carousel-control-color:                      $color-white !default;
 $carousel-control-width:                      15% !default;

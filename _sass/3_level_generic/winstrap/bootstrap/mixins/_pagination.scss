@@ -4,16 +4,18 @@
   > li {
     > a,
     > span {
-      padding: $padding-vertical $padding-horizontal;
       font-size: $font-size;
       line-height: $line-height;
+      padding: $padding-vertical $padding-horizontal;
     }
+
     &:first-child {
       > a,
       > span {
         @include border-left-radius($border-radius);
       }
     }
+
     &:last-child {
       > a,
       > span {

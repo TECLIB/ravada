@@ -7,18 +7,18 @@
 // --------------------------------------------------
 
 .btn {
-  display: inline-block;
-  margin-bottom: 0; // For input.btn
-  font-weight: $btn-font-weight;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
-  white-space: nowrap;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
   @include user-select(none);
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
 
   &,
   &:active,
@@ -38,17 +38,17 @@
 
   &:active,
   &.active {
-    outline: 0;
+    @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
     background-image: none;
-    @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    outline: 0;
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    cursor: $cursor-disabled;
     @include opacity(.65);
     @include box-shadow(none);
+    cursor: $cursor-disabled;
   }
 
   // [converter] extracted a& to a.btn
@@ -68,21 +68,26 @@ a.btn {
 .btn-default {
   @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
+
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
+
 // Success appears as green
 .btn-success {
   @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
 }
+
 // Info appears as blue-green
 .btn-info {
   @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
 }
+
 // Warning appears as orange
 .btn-warning {
   @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
 }
+
 // Danger and error appear as red
 .btn-danger {
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
@@ -94,30 +99,33 @@ a.btn {
 
 // Make a button look and behave like a link
 .btn-link {
+  border-radius: 0;
   color: $link-color;
   font-weight: normal;
-  border-radius: 0;
 
   &,
   &:active,
   &.active,
   &[disabled],
   fieldset[disabled] & {
-    background-color: transparent;
     @include box-shadow(none);
+    background-color: transparent;
   }
+
   &,
   &:hover,
   &:focus,
   &:active {
     border-color: transparent;
   }
+
   &:hover,
   &:focus {
+    background-color: transparent;
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
-    background-color: transparent;
   }
+
   &[disabled],
   fieldset[disabled] & {
     &:hover,
@@ -136,10 +144,12 @@ a.btn {
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
 }
+
 .btn-sm {
   // line-height: ensure proper height of button next to small input
   @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
 }
+
 .btn-xs {
   @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
 }
@@ -159,9 +169,9 @@ a.btn {
 }
 
 // Specificity overrides
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
   &.btn-block {
     width: 100%;
   }
