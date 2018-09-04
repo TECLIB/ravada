@@ -1,9 +1,9 @@
 title: Ravada VDI
 email: ravada@telecos.upc.edu
 twitter: ravada_vdi
-baseurl: "/"
-url: "https://ravada.upc.edu/"
-image: https://ravada.upc.edu/images/logo2.png
+baseurl: /ravada
+url: https://teclib.github.io
+image: https://teclib.github.io/ravada/images/logo2.png
 
 # Build settings
 markdown: kramdown
