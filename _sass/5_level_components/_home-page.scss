@@ -26,36 +26,88 @@
 
 }
 
-// Text and images of the "Features" section
-
-.text-features {
-    font-size: 25px;
-    padding-bottom: 3%;
+@media (max-width: 414px) {
+    .col-md-push-12 {
+        max-width: 100%;
+    }
+}
+@media (min-width: 414px) and (max-width: 768px) {
+    .col-md-push-12 {
+        margin: 0 20% 0 20%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .col-md-push-12 {
+        margin: 0 1% 0 1%;
+        max-width: 48%;
+    }
 }
 
+// Text and images of the "Features" section
+
 .homepage-features {
+    float: left;
     text-align: center;
+    max-width: 100%;
+    padding: 2%;
+    margin: 1% 2% 1% 2%;
+    display: block;
     
     .images-features {
-        max-width: 40%;
         float: left;
-        padding: 3%;
+        padding: 2%;
 
         .icon-homepage {
             height: 170px;
             width: 250px;
         }
     }
-
+ 
 }
+
+@media (max-width: 414px) {
+    .homepage-features {
+        .images-features {
+            margin: 2% 7% 2% 7%;
+        }
+    }
+}
+@media (min-width: 414px) and (max-width: 768px) {
+    .homepage-features {
+        padding: 1% 1% 1% 1%;
+        margin: 0 10% 0 10%;
+        .images-features {
+            max-width: 100%;
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .homepage-features {
+        padding: 1% 1% 1% 1%;
+        margin: 0 10% 0 10%;
+        .images-features {
+            max-width: 33%;
+            .icon-homepage {
+                height: 110px;
+            }
+        }
+    }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+    .homepage-features {
+        padding: 1%;
+        margin: 1%;
+    }
+}
+
 // Logos and text of the Buttons of the "Getting started" section
 
 .images-started {
     float: left;
     width: 28%;
-    height: 300px;
+    height: 230px;
     margin: 0 2% 0 2%;
-    padding: 35px 15px 0 15px;
+    padding: 4% 2% 0 2%;
     background-color: $color-yellow;
     text-align: center;
     font-size: 27px;
@@ -66,27 +118,58 @@
     
 }
 
+@media (max-width: 414px) {
+    .images-started {
+        width: 100%;
+        margin: 1% 3% 5% 3%;
+        padding: 10% 2% 0 2%;
+    }
+}
+@media (min-width: 414px) and (max-width: 992px) {
+    .images-started {
+        width: 75%;
+        margin: 1% 15% 5% 15%;
+        padding: 7% 2% 0 2%;
+    }
+}
+
+
 // Homepage style
 
 .container {
 
     // Subtitle of the main title
-    .type-p1 {
-        font-size: 15px;
-        font-weight: 400;
+    .type-p3 {
+        padding-bottom: 5%;
     }
 
-    // Text of the "About" section
-    .type-p2 {
-        max-width: 65%;
-        padding: 12px 0 0 0;
-        font-size: 15px;
-        font-weight: 400;
-
-        &.p-size3 {
-            font-size: 13px;
+    .col-md-pull-12 {
+        p {
+            max-width: 65%;
         }
+    }
 
+    @media (max-width: 414px) {
+        .col-md-pull-12 {
+            padding-left: 7%;
+            p {
+                max-width: 100%;
+            }
+        }
+    }
+    @media (min-width: 414px) and (max-width: 768px) {
+        .col-md-pull-12 {
+            p {
+                max-width: 55%;
+            }
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1024px) {
+        .col-md-pull-12 {
+            p {
+                max-width: 85%;
+            }
+        }
     }
 
     // "Developers" section
@@ -111,6 +194,21 @@
 
     }
 
+    @media (max-width: 414px) {
+        .developers-container {
+            max-width: 90%;
+            margin: 0 7% 0 7%;
+            height: 300px;
+        }
+    }
+    @media (min-width: 415px) and (max-width: 768px) {
+        .developers-container {
+            max-width: 50%;
+            height: 355px;
+        }
+    }
+
+
     // "Get help with Ravada" section
     .help-container {
         float: left;
@@ -131,6 +229,19 @@
             font-weight: 400;
         }
 
+    }
+
+    @media (max-width: 414px) {
+        .help-container {
+            max-width: 100%;
+            height: 320px;
+            margin: 0 25% 0 25%;
+        }
+    }
+    @media (min-width: 415px) and (max-width: 768px) {
+        .help-container {
+            height: 300px;
+        }
     }
 
     .help-text {
