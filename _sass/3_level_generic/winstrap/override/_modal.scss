@@ -1,7 +1,7 @@
 .modal-content {
   box-shadow: none;
   margin-top: 20px;
-  padding: spacing(xs, -4) spacing(xs) spacing(xs, -4);
+  padding: spacing(xs, -4) spacing(xs);
 
   .modal-header {
     padding: 0;
@@ -47,7 +47,7 @@
 .modal-center-vertical {
   text-align: center;
 
-  &:before {
+  &::before {
     display: inline-block;
     height: 100%;
     vertical-align: middle;

@@ -14,7 +14,7 @@ a.navigation-btn {
     text-decoration: none;
   }
 
-  &:before {
+  &::before {
     @include glyph(back);
     left: spacing(n);
     position: absolute;
@@ -26,6 +26,7 @@ a.navigation-btn {
       right: spacing(n);
     }
   }
+
   @media (min-width: $screen-md) {
     // Have to use !important because show/hide behavior via JavaScript is styled inline
     display: none !important;
@@ -139,7 +140,7 @@ a.navigation-btn {
             padding-left: spacing(xxs);
           }
 
-          &:before {
+          &::before {
             @include glyph(add);
             font-size: 10px;
             position: absolute;
@@ -147,7 +148,7 @@ a.navigation-btn {
           }
 
           &.active {
-            &.with-icon:before {
+            &.with-icon::before {
               content: glyph(remove);
             }
           }
@@ -255,7 +256,7 @@ a.navigation-btn {
     .navigation-label {
       color: $color-type-primary-alt;
 
-      &:after {
+      &::after {
         color: $color-vivid-low-alt;
       }
     }

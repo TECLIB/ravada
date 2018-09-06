@@ -7,7 +7,7 @@
 // --------------------------------------------------
 
 .nav {
-  @include clearfix;
+  @include clearfix();
   list-style: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
@@ -58,7 +58,7 @@
   // we missed it. We don't currently support this anywhere, but in the interest
   // of maintaining backward compatibility in case you use it, it's deprecated.
   .nav-divider {
-    @include nav-divider;
+    @include nav-divider();
   }
 
   // Prevent IE8 from misplacing imgs

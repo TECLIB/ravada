@@ -109,7 +109,7 @@
   // Nuke hover/focus effects
   &:hover,
   &:focus {
-    @include reset-filter;
+    @include reset-filter();
     background-color: transparent;
     background-image: none; // Remove CSS gradient
     cursor: $cursor-disabled;

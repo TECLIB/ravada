@@ -45,7 +45,7 @@ textarea.form-control {
 
   .checkbox:first-of-type,
   .radio:first-of-type {
-    margin-top: spacing(xs, -2)
+    margin-top: spacing(xs, -2);
   }
 
   .checkbox:last-of-type,
@@ -73,8 +73,8 @@ textarea.form-control {
 .radio {
   margin: spacing(xs, -2) 0;
 
-  & input[type=checkbox],
-  & input[type=radio] {
+  & input[type='checkbox'],
+  & input[type='radio'] {
     height: 20px;
     margin-left: -28px;
     margin-top: 0;
@@ -142,7 +142,7 @@ textarea.form-control {
 .combobox {
   position: relative;
 
-  &:after {
+  &::after {
     @include glyph(chevron-down);
     font-size: 1rem;
     position: absolute;
@@ -158,7 +158,6 @@ select {
     // remove browser generated icon on
     // Chrome, Safari, Opera, and Firefox
     -moz-appearance: none;
-    -o-appearance: none;
     -webkit-appearance: none;
 
     max-width: 368px;
@@ -265,8 +264,8 @@ input.form-control::-ms-reveal {
 .checkbox,
 .radio {
   & label {
-    input[type=checkbox],
-    input[type=radio] {
+    input[type='checkbox'],
+    input[type='radio'] {
       opacity: 0;
     }
 
@@ -349,7 +348,7 @@ select {
       background-color: $color-neutral-low;
     }
 
-    &:after {
+    &::after {
       color: $color-vivid-low;
     }
 
@@ -496,7 +495,7 @@ form .theme-on-img-dark {
 
   // Combo Box Alt Colors
   .combobox {
-    &:after {
+    &::after {
       color: $color-vivid-low-alt;
     }
   }
@@ -518,7 +517,7 @@ form .theme-on-img-dark {
         border-color: $color-vivid-high-alt;
       }
 
-      &:after {
+      &::after {
         color: $color-vivid-low-alt;
       }
 
@@ -688,7 +687,7 @@ form .theme-dark {
         border-color: $color-vivid-high-alt;
       }
 
-      &:after {
+      &::after {
         color: $color-vivid-low;
       }
 
@@ -742,7 +741,7 @@ form .theme-light {
         background-color: $color-neutral-low;
       }
 
-      &:after {
+      &::after {
         color: $color-vivid-low;
       }
 

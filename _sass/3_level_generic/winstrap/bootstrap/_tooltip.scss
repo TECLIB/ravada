@@ -8,7 +8,7 @@
   @include opacity(0);
   // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
   // So reset our font and text properties to avoid inheriting weird values.
-  @include reset-text;
+  @include reset-text();
   display: block;
   font-size: $font-size-small;
 

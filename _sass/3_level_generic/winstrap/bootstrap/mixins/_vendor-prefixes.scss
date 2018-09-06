@@ -14,10 +14,10 @@
 // - Transitions
 // - User Select
 
+// sass-lint:disable mixin-name-format
 
 // Animations
 @mixin animation($animation) {
-  -o-animation: $animation;
   -webkit-animation: $animation;
   animation: $animation;
 }
@@ -98,7 +98,6 @@
 @mixin hyphens($mode: auto) {
   -moz-hyphens: $mode;
   -ms-hyphens: $mode; // IE10+
-  -o-hyphens: $mode;
   -webkit-hyphens: $mode;
   hyphens: $mode;
   word-wrap: break-word;

@@ -47,7 +47,7 @@
 // Mixin for generating new styles
 @mixin btn-styles($btn-color: #555) {
   @include gradient-vertical($start-color: $btn-color, $end-color: darken($btn-color, 12%));
-  @include reset-filter; // Disable gradients for IE9 because filter bleeds through rounded corners; see https://github.com/twbs/bootstrap/issues/10620
+  @include reset-filter(); // Disable gradients for IE9 because filter bleeds through rounded corners; see https://github.com/twbs/bootstrap/issues/10620
   background-repeat: repeat-x;
   border-color: darken($btn-color, 14%);
 
@@ -136,7 +136,7 @@
 .navbar-default {
   $shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
   @include gradient-vertical($start-color: lighten($navbar-default-bg, 10%), $end-color: $navbar-default-bg);
-  @include reset-filter; // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
+  @include reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
   @include box-shadow($shadow);
   border-radius: $navbar-border-radius;
 
@@ -155,7 +155,7 @@
 // Inverted navbar
 .navbar-inverse {
   @include gradient-vertical($start-color: lighten($navbar-inverse-bg, 10%), $end-color: $navbar-inverse-bg);
-  @include reset-filter; // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered; see https://github.com/twbs/bootstrap/issues/10257
+  @include reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered; see https://github.com/twbs/bootstrap/issues/10257
   border-radius: $navbar-border-radius;
 
   .navbar-nav > .open > a,
@@ -238,7 +238,7 @@
 // Reset the striped class because our mixins don't do multiple gradients and
 // the above custom styles override the new `.progress-bar-striped` in v3.2.0.
 .progress-bar-striped {
-  @include gradient-striped;
+  @include gradient-striped();
 }
 
 

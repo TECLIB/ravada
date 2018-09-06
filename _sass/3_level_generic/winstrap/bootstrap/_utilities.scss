@@ -7,11 +7,11 @@
 // -------------------------
 
 .clearfix {
-  @include clearfix;
+  @include clearfix();
 }
 
 .center-block {
-  @include center-block;
+  @include center-block();
 }
 
 .pull-right {
@@ -40,7 +40,7 @@
 }
 
 .text-hide {
-  @include text-hide;
+  @include text-hide();
 }
 
 

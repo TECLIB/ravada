@@ -554,6 +554,9 @@ $popover-arrow-color:                 $popover-bg !default;
 
 //** Popover outer arrow width
 $popover-arrow-outer-width:           ($popover-arrow-width + 1) !default;
+
+// sass-lint:disable function-name-format
+
 //** Popover outer arrow color
 $popover-arrow-outer-color:           fade_in($popover-border-color, .05) !default;
 //** Popover outer arrow fallback color

@@ -12,8 +12,8 @@
   @include box-sizing(border-box);
 }
 
-*:before,
-*:after {
+*::before,
+*::after {
   @include box-sizing(border-box);
 }
 
@@ -57,7 +57,7 @@ a {
   }
 
   &:focus {
-    @include tab-focus;
+    @include tab-focus();
   }
 }
 
@@ -80,7 +80,7 @@ img {
 
 // Responsive images (ensure images don't scale beyond their parents)
 .img-responsive {
-  @include img-responsive;
+  @include img-responsive();
 }
 
 // Rounded corners

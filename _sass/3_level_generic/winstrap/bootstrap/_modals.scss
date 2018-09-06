@@ -80,7 +80,7 @@
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
-  @include clearfix;
+  @include clearfix();
   border-bottom: 1px solid $modal-header-border-color;
   padding: $modal-title-padding;
 }
@@ -105,7 +105,7 @@
 
 // Footer (for actions)
 .modal-footer {
-  @include clearfix; // clear it in case folks use .pull-* classes on buttons
+  @include clearfix(); // clear it in case folks use .pull-* classes on buttons
   border-top: 1px solid $modal-footer-border-color;
   padding: $modal-inner-padding;
   text-align: right; // right align buttons
