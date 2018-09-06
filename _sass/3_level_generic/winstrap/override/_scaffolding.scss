@@ -9,7 +9,7 @@ a {
   }
 
   &:focus {
-    @include tab-focus;
+    @include tab-focus();
   }
 
   //

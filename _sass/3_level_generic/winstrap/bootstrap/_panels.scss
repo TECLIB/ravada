@@ -14,7 +14,7 @@
 
 // Panel contents
 .panel-body {
-  @include clearfix;
+  @include clearfix();
   padding: $panel-body-padding;
 }
 

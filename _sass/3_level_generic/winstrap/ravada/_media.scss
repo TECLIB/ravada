@@ -40,7 +40,7 @@
       top: 0;
 
       // Overlay for hover effect
-      &:after {
+      &::after {
         @include transition(background-color .3s);
         background-color: rgba($body-bg, 0);
         bottom: 0;
@@ -51,13 +51,13 @@
         top: 0;
       }
 
-      &:hover:after {
+      &:hover::after {
         background-color: rgba($body-bg, .3);
       }
 
       // Ghost element to align the image vertically
       // http://css-tricks.com/centering-in-the-unknown/
-      &:before {
+      &::before {
         content: '';
         display: inline-block;
         height: 100%;
@@ -72,11 +72,11 @@
           z-index: 1;
         }
 
-        &:after {
+        &::after {
           background-color: $color-neutral-mid;
         }
 
-        &:hover:after {
+        &:hover::after {
           background-color: rgba($color-gray, 0);
         }
       }
@@ -98,7 +98,7 @@
     }
 
     i[class*='glyph-'] {
-      color: white;
+      color: #fff;
       font-size: 60px;
       left: 50%;
       margin-left: -30px;
@@ -121,7 +121,7 @@
     .media-img {
       margin-bottom: ($grid-gutter-width / 2);
 
-      a:before,
+      a::before,
       img {
         vertical-align: top;
       }
@@ -151,7 +151,7 @@
     overflow: hidden;
     position: relative;
 
-    &:after {
+    &::after {
       background: linear-gradient(to right, rgba($body-bg, 0), $body-bg);
       bottom: 0;
       content: '';
@@ -197,7 +197,7 @@
 
   // Media with label
   .media-img-has-label {
-    a:before,
+    a::before,
     img {
       vertical-align: top;
     }
@@ -210,7 +210,7 @@
   .media-img-label {
     background: $color-vivid-mid;
     bottom: 0;
-    color: white;
+    color: #fff;
     font-size: $font-size-small;
     left: 0;
     min-height: 27%;

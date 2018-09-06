@@ -14,7 +14,7 @@
     margin: 0;
   }
 
-  > li + li:before {
+  > li + li::before {
     content: '\005c';
     display: inline-block;
     padding: 0 spacing(xxxs) 0 spacing(xxxs, -4);
@@ -32,7 +32,7 @@
       }
     }
 
-    > li + li:before {
+    > li + li::before {
       color: $color-vivid-low;
     }
 
@@ -52,7 +52,7 @@
       }
     }
 
-    > li + li:before {
+    > li + li::before {
       color: $color-vivid-low-alt;
     }
 

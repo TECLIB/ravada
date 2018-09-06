@@ -92,7 +92,7 @@
   .pagination-prev {
     > a,
     > span {
-      &:after {
+      &::after {
         content: attr(aria-label);
       }
     }
@@ -101,7 +101,7 @@
   .pagination-next {
     > a,
     > span {
-      &:before {
+      &::before {
         content: attr(aria-label);
       }
     }

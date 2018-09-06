@@ -13,7 +13,7 @@
     top: 0;
     width: 20px;
 
-    &:after {
+    &::after {
       color: $color-accent;
       content: '\2022';
       font-size: 10px;
@@ -40,7 +40,7 @@
     height: 40px;
     width: 40px;
 
-    &:after {
+    &::after {
       font-size: 16px;
     }
   }
@@ -49,7 +49,7 @@
     height: 60px;
     width: 60px;
 
-    &:after {
+    &::after {
       font-size: 20px;
     }
   }
@@ -80,8 +80,8 @@
 
   70% {
     @include rotate(815deg);
-    opacity: 1;
     @include animation-timing-function(ease-out);
+    opacity: 1;
   }
 
   75% {

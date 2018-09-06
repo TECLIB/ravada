@@ -8,9 +8,10 @@
     "build": "bundle exec jekyll build",
     "install": "bundle install",
     "test-sass": "./node_modules/.bin/sass-lint -c .sass-lint.yml -v -q",
+    "test-sass-winstrap": "./node_modules/.bin/sass-lint -c _sass/3_level_generic/winstrap/.sass-lint.yml -v -q",
     "test-js": "./node_modules/.bin/eslint **/*.js --fix",
     "test-yaml": "ci/yamllint.sh",
-    "test": "npm run test-sass & npm run test-js & npm run test-yaml"
+    "test": "npm run test-sass & test-sass-winstrap & npm run test-js & npm run test-yaml"
   },
   "repository": {
     "type": "git",

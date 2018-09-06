@@ -4,7 +4,7 @@
 
 
 .pager {
-  @include clearfix;
+  @include clearfix();
   list-style: none;
   margin: $line-height-computed 0;
   padding-left: 0;
