@@ -1,10 +1,11 @@
 files:
+  include:
+    - '_sass/**/*.s+(a|c)ss'
+    - 'css/**/*.s+(a|c)ss'
   ignore:
-    - 'sass/vendor/**/*.*'
     - 'css/jazzy.scss'
-    - 'css/syntax.css'
     - 'css/highlight.scss'
-    - 'node_modules/**'
+    - '_sass/3_level_generic/winstrap/**/*.s+(a|c)ss'
 rules:
   class-name-format:
     - 1
