@@ -2,10 +2,7 @@
 ---
 
 self.addEventListener('install', (e) => {
-
-  {% assign name = site.github.project_title %}
-
-  var CACHE_NAME = '{{ site.data.config.cache_version }}'
+  const CACHE_NAME = '{{site.github.project_title}}-{{ site.data.config.cache_version }}'
 
   caches.keys()
     .then((cacheNames) => {
@@ -16,9 +13,6 @@ self.addEventListener('install', (e) => {
           }
         })
       )
-    })
-    .catch(error => {
-      console.log(error)
     })
 
   e.waitUntil(
@@ -43,21 +37,14 @@ self.addEventListener('install', (e) => {
           '{{ "/fonts/selawksl.ttf" | absolute_url }}'
         ])
       })
-      .catch(error => {
-        console.log(error)
-      })
   )
 })
 
 self.addEventListener('fetch', (event) => {
-  console.log(event.request.url)
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
         return response || fetch(event.request)
-      })
-      .catch(error => {
-        console.log(error)
       })
   )
 })
