@@ -1,8 +1,7 @@
 <div class="share-bar">
   <button
     class="btn share-bar__facebook"
-    href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}"
-    onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+    onclick="share('https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape }}')"
     title="Share on Facebook"
   >
     <i class="fab fa-facebook"></i>
