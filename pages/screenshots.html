@@ -1,14 +1,39 @@
 ---
 layout: page
 permalink: screenshots
+screenshots:
+  -
+    title: User available machines
+    image: /images/features/available.png
+    description:
+      - Providing the ability for the user to access multiple VM pools.
+  -
+    title: Admin list machines
+    image: /images/features/listVM.png
+    description:
+      - Providing admin role for manage VM pools.
+  -
+    title: Machine manage
+    image: /images/features/VM.png
+  -
+    title: Machine UP
+    image: /images/features/VMup.png
+  -
+    title: User Settings
+    image: /images/features/user_settings.png
+    description:
+      - SQL and LDAP authentication are supported.
+      - Language detected based on browser preference. It can be changed by the user.
+  -
+    title: New machine template
+    image: /images/features/newVM.png
+    description:
+      - Providing the ability for the admin user to manage VM from templates.
 ---
 
-<div class="container">
-  <h1>Screenshots</h1>
-</div>
-
 <section class="container screenshots" >
-  <div class="row">
+  <h1>Screenshots</h1>
 
-  </div>
+  {% include screenshots-modal.html %}
+
 </section>

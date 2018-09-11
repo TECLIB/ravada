@@ -17,3 +17,12 @@
     font-size: $size * 1.8;
   }
 }
+
+.modal-header {
+  i {
+    color: $theme-primary;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+  }
+}
