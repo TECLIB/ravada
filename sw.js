@@ -30,6 +30,7 @@ self.addEventListener('install', (e) => {
           '{{ "/js/app.js" | absolute_url }}',
           '{{ "/js/jquery.min.js" | absolute_url }}',
           '{{ "/js/bootstrap.min.js" | absolute_url }}',
+          '{{ "/js/share-bar.js" | absolute_url }}',
           '{{ "/manifest.json" | absolute_url }}',
           '{{ "/fonts/glyphs/winjs-symbols.ttf" | absolute_url }}',
           '{{ "/fonts/selawk.ttf" | absolute_url }}',
