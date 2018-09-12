@@ -1,5 +1,33 @@
 ---
 layout: home
+screenshots:
+  -
+    title: User available machines
+    image: /images/features/available.png
+    description:
+      - Providing the ability for the user to access multiple VM pools.
+  -
+    title: Admin list machines
+    image: /images/features/listVM.png
+    description:
+      - Providing admin role for manage VM pools.
+  -
+    title: Machine manage
+    image: /images/features/VM.png
+  -
+    title: Machine UP
+    image: /images/features/VMup.png
+  -
+    title: User Settings
+    image: /images/features/user_settings.png
+    description:
+      - SQL and LDAP authentication are supported.
+      - Language detected based on browser preference. It can be changed by the user.
+  -
+    title: New machine template
+    image: /images/features/newVM.png
+    description:
+      - Providing the ability for the admin user to manage VM from templates.
 ---
 
 <!-- **************************************
@@ -43,7 +71,7 @@ The CSS files that affect the homepage are:
             <div class="row">
 
                 <div class="col-md-12 col-md-push-12 text-center">
-                    <img class="img-responsive visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block visible-xl-inline-block" 
+                    <img class="img-responsive visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block visible-xl-inline-block"
                     alt="Flyve" src="images/logo3.png" data-source-index="2">
                 </div>
 
@@ -52,34 +80,34 @@ The CSS files that affect the homepage are:
                         ABOUT
                     </div>
                     <p>
-                        Ravada is an open-source project that allows users 
-                        to connect to a virtual desktop. 
+                        Ravada is an open-source project that allows users
+                        to connect to a virtual desktop.
                         It is a <b>VDI broker</b>.
                         <br><br>
-                        Its back-end has been designed and implemented in 
-                        order to allow future hypervisors to be added to 
-                        the framework. Currently it supports KVM and 
+                        Its back-end has been designed and implemented in
+                        order to allow future hypervisors to be added to
+                        the framework. Currently it supports KVM and
                         LXC is in the works.
                         <br><br>
-                        The only requirements are: a web-browser and 
+                        The only requirements are: a web-browser and
                         a remote viewer supporting the spice protocol.
                     </p>
                     <p>
                         <b>Ravada delivers:</b>
                         <br><br>
-                        Following the <a href='#'><b>documentation</b></a>*, 
-                        you'll be ready to deploy a virtual machine in 
-                        minutes. For more information, follow 
+                        Following the <a href='#'><b>documentation</b></a>*,
+                        you'll be ready to deploy a virtual machine in
+                        minutes. For more information, follow
                         <a href='#'><b>get started</b></a>.
                         <br><br>
-                        *Also available in <a href='#'><b>PDF</b></a> and 
+                        *Also available in <a href='#'><b>PDF</b></a> and
                         <a href='#'><b>EPUB</b></a>.
                     </p>
                     <p>
                         <b>Who is Ravada meant for?:</b>
                         <br><br>
-                        Ravada is meant for sysadmins who have some 
-                        background in GNU/Linux, and want to deploy a 
+                        Ravada is meant for sysadmins who have some
+                        background in GNU/Linux, and want to deploy a
                         VDI project.
                         <br><br>
                         Get started on VDI, without reinvent the wheel.
@@ -95,67 +123,16 @@ The CSS files that affect the homepage are:
     ****************** -->
 
     <div class="jumbotron theme-light">
-        <div class="container">
-
-            <div class="type-h3">
-                FEATURES
-            </div>
-            <div class="type-sh3">
-                FRONTEND WEB FEATURES
-            </div>
-
-            <div class="homepage-features">
-
-                <div class="images-features">
-                    <a href='#'>
-                        <img class="icon-homepage"
-                        alt="Flyve" src="images/features/available.png" data-source-index="2">
-                    </a>
-                </div>
-
-                <div class="images-features">
-                    <a href='#'>
-                        <img class="icon-homepage"
-                        alt="Flyve" src="images/features/listVM.png" data-source-index="2">
-                    </a>
-                </div>
-
-                <div class="images-features">
-                    <a href='#'>
-                        <img class="icon-homepage"
-                        alt="Flyve" src="images/features/user_settings.png" data-source-index="2">
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="homepage-features">
-
-                <div class="images-features">
-                    <a href='#'>
-                        <img class="icon-homepage"
-                        alt="Flyve" src="images/features/newVM.png" data-source-index="2">
-                    </a>
-                </div>
-        
-                <div class="images-features">
-                    <a href='#'>
-                        <img class="icon-homepage"
-                        alt="Flyve" src="images/features/VM.png" data-source-index="2">
-                    </a>
-                </div>
-        
-                <div class="images-features">
-                    <a href='#'>
-                        <img class="icon-homepage"
-                        alt="Flyve" src="images/features/VMup.png" data-source-index="2">
-                    </a>
-                </div>
-
-            </div>
-
+      <div class="container">
+        <div class="type-h3">
+          FEATURES
+        </div>
+        <div class="type-sh3">
+          FRONTEND WEB FEATURES
         </div>
 
+        {% include screenshots-modal.html %}
+      </div>
     </div>
 
     <!-- ************************
@@ -217,14 +194,14 @@ The CSS files that affect the homepage are:
                 <h3><b>PERL</b></h3>
 
                 <p class="type-p2 p-size2">
-                    We're proud to program it in 
+                    We're proud to program it in
                     <a href='#'><b>Perl</b></a>.
                 </p>
 
                 <p class="type-p2 p-size2">
-                    Perl 5 is a highly capable, 
-                    feature-rich programming language 
-                    with over 30 years of development. 
+                    Perl 5 is a highly capable,
+                    feature-rich programming language
+                    with over 30 years of development.
                     <a href='#'><b>More about why we love Perl...</b></a>
                 </p>
 
@@ -237,7 +214,7 @@ The CSS files that affect the homepage are:
                 <h3><b>WEB FRAMEWORK</b></h3>
 
                 <p class="type-p2 p-size2">
-                    We use <a href='#'><b>Mojolicious</b></a>, 
+                    We use <a href='#'><b>Mojolicious</b></a>,
                     a real-time web framework.
                 </p>
 
@@ -250,10 +227,10 @@ The CSS files that affect the homepage are:
                 <h3><b>DATA MODELING</b></h3>
 
                 <p class="type-p2 p-size2">
-                    We use <a href='#'><b>MySQL</b></a>. 
-                    It's the world's most popular open 
-                    source database. With its proven 
-                    performance, reliability, and 
+                    We use <a href='#'><b>MySQL</b></a>.
+                    It's the world's most popular open
+                    source database. With its proven
+                    performance, reliability, and
                     ease-of-use.
                 </p>
 
@@ -266,15 +243,15 @@ The CSS files that affect the homepage are:
                 <h3><b>INTERNATIONALIZATION (i18n)</b></h3>
 
                 <p class="type-p2 p-size2">
-                    We use <a href='#'><b>Transifex</b></a> 
-                    to provide a cleaner and easy to use 
+                    We use <a href='#'><b>Transifex</b></a>
+                    to provide a cleaner and easy to use
                     interface for translators.
                 </p>
 
                 <p class="type-p2 p-size2">
-                    It's meant for adapting applications 
-                    and text to enable their usability in 
-                    a particular cultural or linguistic 
+                    It's meant for adapting applications
+                    and text to enable their usability in
+                    a particular cultural or linguistic
                     market.
                 </p>
 
@@ -287,17 +264,17 @@ The CSS files that affect the homepage are:
                 <h3><b>GITHUB</b></h3>
 
                 <p class="type-p2 p-size2">
-                    We use Git as a version control system 
-                    for tracking changes in computer files 
-                    and coordinating work on those files 
-                    among our <a href='#'><b>team</b></a>. 
+                    We use Git as a version control system
+                    for tracking changes in computer files
+                    and coordinating work on those files
+                    among our <a href='#'><b>team</b></a>.
                     You're invited to contribute!
                 </p>
 
                 <p class="type-p2 p-size2">
-                    Our code is licensed with 
-                    <a href='#'><b>AGPL</b></a> 
-                    and is available in 
+                    Our code is licensed with
+                    <a href='#'><b>AGPL</b></a>
+                    and is available in
                     <a href='#'><b>Github</b></a>.
                 </p>
 
@@ -310,14 +287,14 @@ The CSS files that affect the homepage are:
                 <h3><b>A LOT OF FREE SOFTWARE</b></h3>
 
                 <p class="type-p2 p-size2">
-                    We use a lot of powerful free source 
+                    We use a lot of powerful free source
                     like <a href='#'><b>GNU</b></a>
-                    /Linux <a href='#'><b>Ubuntu</b></a>, 
-                    <a href='#'><b>KVM</b></a>, 
-                    <a href='#'><b>Libvirt</b></a> 
-                    or <a href='#'><b>Spice</b></a>, 
-                    among others. Responsive web made with 
-                    <a href='#'><b>Bootstrap</b></a> 
+                    /Linux <a href='#'><b>Ubuntu</b></a>,
+                    <a href='#'><b>KVM</b></a>,
+                    <a href='#'><b>Libvirt</b></a>
+                    or <a href='#'><b>Spice</b></a>,
+                    among others. Responsive web made with
+                    <a href='#'><b>Bootstrap</b></a>
                     and <a href='#'><b>AngularJS</b></a>.
                 </p>
 
@@ -370,7 +347,7 @@ The CSS files that affect the homepage are:
                 <h3><a href='#'><b>FEATURE REQUEST</b></a></h3>
 
                 <p class="type-p2 p-size2">
-                    I have a suggestion for how Ravada 
+                    I have a suggestion for how Ravada
                     could be improved.
                 </p>
 
@@ -383,7 +360,7 @@ The CSS files that affect the homepage are:
                 <h3><a href='#'><b>CONTRIBUTING</b></a></h3>
 
                 <p class="type-p2 p-size2">
-                    Information useful if you want to work 
+                    Information useful if you want to work
                     on the Ravada core development.
                 </p>
 
@@ -394,8 +371,8 @@ The CSS files that affect the homepage are:
                 <h3><b>HAVE YOU INSTALLED RAVADA?</b></h3>
 
                 <p class="type-p2 p-size2">
-                    Glad to hear! Drop us a <a href='#'><b>line</b></a>, 
-                    <a href='#'><b>tweet</b></a>, <a href='#'><b>telegram</b></a> 
+                    Glad to hear! Drop us a <a href='#'><b>line</b></a>,
+                    <a href='#'><b>tweet</b></a>, <a href='#'><b>telegram</b></a>
                     or <a href='#'><b>star</b></a> in github.
                 </p>
 
@@ -416,7 +393,7 @@ The CSS files that affect the homepage are:
     <div class="jumbotron theme-dark">
         <div class="container">
             <div class="row">
-                
+
                 <div class="around-the-web">
 
                     <div class="type-h4">
@@ -442,7 +419,7 @@ The CSS files that affect the homepage are:
                     <div class="type-h4">
                         <b>ABOUT RAVADA</b>
                     </div>
-        
+
                     <p class="type-p1"><b>
                         Ravada is a free to use open source VDI project.
                     </b></p>
@@ -452,15 +429,15 @@ The CSS files that affect the homepage are:
                     <a href='#'></a>
 
                     <p class="type-p1">
-                        Thanks to ¿¿¿??? them created by 
-                        <a href='#'><b>¿¿¿???</b></a>, Camel in our 
-                        logo by <a href='#'><b>¿¿¿???</b></a> 
-                        and Monitor icon by <a href='#'><b>¿¿¿???</b></a>. 
+                        Thanks to ¿¿¿??? them created by
+                        <a href='#'><b>¿¿¿???</b></a>, Camel in our
+                        logo by <a href='#'><b>¿¿¿???</b></a>
+                        and Monitor icon by <a href='#'><b>¿¿¿???</b></a>.
                         Both with <a href='#'></a>
                     </p>
 
                 </div>
-        
+
             </div>
         </div>
     </div>
