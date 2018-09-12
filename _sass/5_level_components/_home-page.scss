@@ -43,63 +43,6 @@
     }
 }
 
-// Text and images of the "Features" section
-
-.homepage-features {
-    float: left;
-    text-align: center;
-    max-width: 100%;
-    padding: 2%;
-    margin: 1% 2% 1% 2%;
-    display: block;
-    
-    .images-features {
-        float: left;
-        padding: 2%;
-
-        .icon-homepage {
-            height: 170px;
-            width: 250px;
-        }
-    }
- 
-}
-
-@media (max-width: 414px) {
-    .homepage-features {
-        .images-features {
-            margin: 2% 7% 2% 7%;
-        }
-    }
-}
-@media (min-width: 414px) and (max-width: 768px) {
-    .homepage-features {
-        padding: 1% 1% 1% 1%;
-        margin: 0 10% 0 10%;
-        .images-features {
-            max-width: 100%;
-        }
-    }
-}
-@media (min-width: 768px) and (max-width: 992px) {
-    .homepage-features {
-        padding: 1% 1% 1% 1%;
-        margin: 0 10% 0 10%;
-        .images-features {
-            max-width: 33%;
-            .icon-homepage {
-                height: 110px;
-            }
-        }
-    }
-}
-@media (min-width: 992px) and (max-width: 1024px) {
-    .homepage-features {
-        padding: 1%;
-        margin: 1%;
-    }
-}
-
 // Logos and text of the Buttons of the "Getting started" section
 
 .images-started {
@@ -115,7 +58,7 @@
     a {
       color: $color-gray;
     }
-    
+
 }
 
 @media (max-width: 414px) {
