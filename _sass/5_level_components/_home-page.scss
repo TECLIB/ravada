@@ -11,8 +11,6 @@
 // Logos and text of the Buttons of the "Getting started" section
 
 .images-started {
-  background-color: $color-yellow;
-  color: $color-gray;
   display: inline-block;
   font-size: 27px;
   height: 230px;
@@ -22,7 +20,6 @@
   width: 100%;
 
   &:hover {
-    color: $color-gray;
     text-decoration: none;
   }
 }
