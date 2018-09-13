@@ -1,3 +1,5 @@
+[![Ravada header](./Images/contribute-header.png)](https://ravada.upc.edu/)
+
 # How to contribute to Ravada VDI
 
 Welcome to our ever-growing community :octocat:!
@@ -433,3 +435,5 @@ Please make sure you don't do that. Run ``git diff`` before commit to see what y
 exactly contributing.
 
 # Good luck! :tada:
+
+[![Ravada footer](./Images/contribute-footer.png)](https://ravada.upc.edu/)
