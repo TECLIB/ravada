@@ -68,7 +68,7 @@ You can chat with us if you get stuck [@ravadavdi on Telegram](https://t.me/rava
 
 ## Professional Services
 
-The Flyve MDM and GLPI Network services are available through our [Partner's Network](http://www.teclib-edition.com/en/partners/). We provide special training, bug fixes with editor subscription, contributions for new features, and more.
+The customer service experience for Ravada is available through [Teclib Partner's Network](http://www.teclib-edition.com/en/partners/). We provide special training, bug fixes with editor subscription, contributions for new features, and more.
 
 Obtain a personalized service experience, associated with benefits and opportunities.
 
