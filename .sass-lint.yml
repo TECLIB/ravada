@@ -6,6 +6,8 @@ files:
     - 'css/jazzy.scss'
     - 'css/highlight.scss'
     - '_sass/3_level_generic/winstrap/**/*.s+(a|c)ss'
+    - '_sass/3_level_generic/fontawesome/*.s+(a|c)ss'
+
 rules:
   class-name-format:
     - 1

@@ -12,7 +12,8 @@
 
 // Level 3
 @import
-'./3_level_generic/winstrap/main';
+'./3_level_generic/winstrap/main',
+'./3_level_generic/fontawesome/main';
 
 // Level 4
 @import
@@ -41,9 +42,10 @@
 './5_level_components/projects',
 './5_level_components/container__page',
 './5_level_components/zebra-table',
-'./5_level_components/home-page';
+'./5_level_components/home';
 
 // Level 6
 @import
 './6_level_utilities/jumbotron',
+'./6_level_utilities/h--without-padding',
 './6_level_utilities/row-eq-height';

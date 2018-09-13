@@ -1,0 +1,76 @@
+.getting-started {
+  text-align: center;
+
+  .h--without-padding {
+    margin-bottom: 30px;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 27px;
+    height: 230px;
+    margin-bottom: 4%;
+    padding: 40px 2% 0;
+    width: 100%;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.end-section {
+  text-align: center;
+
+  h4 {
+    padding: 35px 0 20px;
+  }
+
+  .end-section__around-the-web {
+    a {
+      border: 2px $white solid;
+      border-radius: 50%;
+      display: inline-block;
+      height: 55px;
+      margin: 0 5px;
+      padding-top: 11px;
+      width: 55px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .end-section__about-ravada {
+    p {
+      padding: 0 0 20px;
+    }
+
+    a {
+      color: $color-midblue;
+    }
+  }
+}
+
+.developers {
+  text-align: center;
+
+  .h--without-padding {
+    margin-bottom: 30px;
+  }
+
+  .developers__card {
+    padding: 20px 10px;
+  }
+}
+
+.get-help {
+  .h--without-padding {
+    margin-bottom: 30px;
+  }
+
+  .get-help__card {
+    padding: 20px 10px;
+  }
+}
