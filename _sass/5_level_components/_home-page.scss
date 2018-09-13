@@ -10,17 +10,19 @@
 
 // Logos and text of the Buttons of the "Getting started" section
 
-.images-started {
-  display: inline-block;
-  font-size: 27px;
-  height: 230px;
-  margin-bottom: 4%;
-  padding: 40px 2% 0;
-  text-align: center;
-  width: 100%;
+.getting-started {
+  a {
+    display: inline-block;
+    font-size: 27px;
+    height: 230px;
+    margin-bottom: 4%;
+    padding: 40px 2% 0;
+    text-align: center;
+    width: 100%;
 
-  &:hover {
-    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -150,67 +152,38 @@
   }
 }
 
-// Color text-link
-
-a {
-  color: $color-accent;
-}
-
-// "Around the web" and "About Ravada" sections
-
-.around-the-web {
-  float: left;
-  height: 250px;
-  padding: 1% 3%;
+.end-section {
   text-align: center;
-  width: 50%;
 
-  .type-h4 {
-    padding: 5% 0 2%;
+  h4 {
+    padding: 35px 0 20px;
   }
 
-  .btn-social {
-    border: 2px solid $color-white;
-    border-radius: 100%;
-    display: inline-block;
-    height: 60px;
-    margin: 20px 7px 0;
-    text-align: center;
-    width: 60px;
+  .end-section__around-the-web {
 
-    .fa-twitter {
-      color: $color-white;
-      margin: 13px;
-    }
+    a {
+      border: 2px $white solid;
+      border-radius: 50%;
+      display: inline-block;
+      height: 55px;
+      margin: 0 5px;
+      padding-top: 11px;
+      width: 55px;
 
-    .fa-github {
-      color: $color-white;
-      margin: 13px;
-    }
-
-    .fa-envelope {
-      color: $color-white;
-      margin: 13px;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
-}
 
-.about-ravada {
-  float: left;
-  height: 250px;
-  padding: 1% 3%;
-  width: 50%;
-
-  .type-h4 {
-    padding: 5% 0;
-    text-align: center;
-  }
-
-  .type-p1 {
-    max-width: 68%;
+  .end-section__about-ravada {
+    p {
+      padding: 0 0 20px;
+    }
 
     a {
       color: $color-midblue;
     }
   }
 }
+
