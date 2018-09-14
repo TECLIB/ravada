@@ -72,6 +72,8 @@ For general discussion, use the [Ravada mailing list](https://groups.google.com/
 
 # <a name="3"></a> 3. Feature Requests [:top:](#top)
 
+If you'd like to make a suggestion, you must first search the existing issues, both opened and closed. Your idea may have already been suggested!
+
 ## <a name="3.1"></a> 3.1 Requirement for a Feature Request
 If you like to _implement_ a new feature please [submit an Issue](https://github.com/UPC/ravada/issues/new?template=Feature_request.md) with a proposal, so we can be sure it's relevant.
 
@@ -90,7 +92,7 @@ You can request a new feature by [submitting an Issue](https://github.com/UPC/ra
 
 A good Issue/Bug report shouldn't leave others needing to chase you up for more information. Please try to be as detailed as possible in your report. What is your environment? What steps will reproduce the issue? What would you expect to be the outcome? All these details will help people to fix any potential bugs.
 
-A bug is a _demonstrable problem_ that is caused by the code in the repository. Good bug reports are extremely helpful, here are steps to follow to build a good one:
+A bug is a _demonstrable problem_ that is caused by the code in the repository. If you're getting a problem when you try to install, there is a good chance that your server is not configured properly. See the [troubleshooting guide](https://ravada.readthedocs.io/en/latest/docs/troubleshooting.html) for help. Good bug reports are extremely helpful, here are steps to follow to build a good one:
 
 ### <a name="4.1.1"></a> 4.1.1 Check for Past Issues or Bugs
 Before submitting the issue please check the [Issue Tracker](https://github.com/UPC/ravada/issues), maybe the issue/bug was already reported by another contributor. By doing this you help us maximize the effort spent on solving problems and the addition of new features.
@@ -173,7 +175,7 @@ Make your changes in your **newly created** branch.
 
 Follow this guide about running [Ravada in development mode](http://ravada.readthedocs.io/en/latest/devel-docs/run.html).
 
-If you change a translation or language file make sure you follow this small [guide](http://ravada.readthedocs.io/en/latest/devel-docs/translations.html?highlight=translate).
+If you change a translation or language file make sure you follow this small [guide](http://ravada.readthedocs.io/en/latest/devel-docs/translations.html).
 
 ### <a name="4.2.4"></a> 4.2.4 Commit Your Changes
 A commit, or "revision", is an individual change to a file (or set of files). It's like when you save a file, except with Git, every time you save it creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep a record of what changes were made when and by who. Commits usually contain a commit message which is a brief description of what changes were made.
@@ -433,6 +435,7 @@ is to submit code automatically cleaned by the editor. Usually, removed end of l
 spaces or spaces converted to tabs.
 Please make sure you don't do that. Run ``git diff`` before commit to see what you are
 exactly contributing.
+* We recommend that you install a local development server on your computer, rather than testing your code directly on the production server. This means you can test your code directly on your own computer, making development faster and without the risk of exposing sensitive information to the public.
 
 # Good luck! :tada:
 
