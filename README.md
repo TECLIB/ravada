@@ -11,7 +11,7 @@
 
 ## Remote Virtual Desktops Manager
 
-Ravada is a software that allows the user to connect to a remote virtual desktop.
+Ravada is a free, easy-to-use & deploy Virtual Desktop Infraestructure solution.
 
 To get started, check out [Ravada Website](https://ravada.upc.edu/)!
 
@@ -46,7 +46,7 @@ Its back-end has been designed and implemented in order to allow future hypervis
 
 ## Installation
 
-Read [INSTALL](http://ravada.readthedocs.io/en/latest/docs/INSTALL.html).
+Read our [Install Ravada](http://ravada.readthedocs.io/en/latest/docs/INSTALL.html) to learn how to deploy your VDI in minutes.
 
 ## Documentation
 
