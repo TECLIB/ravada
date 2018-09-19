@@ -1,21 +1,24 @@
-.contact-page {
-
-  img {
-    width: 30px;
-  }
-
-  .contact-page__row {
-    overflow: auto;
+.contact {
+  .contact__card {
+    padding: 15px;
     text-align: center;
-
-    a {
-      margin-top: 15px;
-    }
   }
 
-  .contact-page__row--social {
-    img {
-      margin: 0 20px;
-    }
+  .contact__header {
+    background-color: $theme-lighter-alt;
+    border-bottom: 1px solid $neutral-quaternary;
+  }
+
+  .contact__img {
+    padding: 38px 5% 5%;
+  }
+
+  .share-bar {
+    margin-top: 38px;
+    text-align: center;
+  }
+
+  .page-header {
+    padding-bottom: 20px;
   }
 }
