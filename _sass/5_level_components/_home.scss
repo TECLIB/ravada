@@ -66,11 +66,8 @@
 }
 
 .get-help {
-  .h--without-padding {
-    margin-bottom: 30px;
-  }
-
-  .get-help__card {
-    padding: 20px 10px;
+  .get-help__image {
+    padding: 20px;
+    text-align: center;
   }
 }
