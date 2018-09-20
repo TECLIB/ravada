@@ -2,7 +2,7 @@
 ---
 
 self.addEventListener('install', (e) => {
-  const CACHE_NAME = '{{site.github.project_title}}-{{ site.data.config.cache_version }}'
+  var CACHE_NAME = '{{ site.github.build_revision }}'
 
   caches.keys()
     .then((cacheNames) => {
