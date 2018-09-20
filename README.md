@@ -64,7 +64,9 @@ See [the tags section of our GitHub project](https://github.com/UPC/ravada/relea
 
 ## Contact
 
-You can chat with us if you get stuck [@ravadavdi on Telegram](https://t.me/ravadavdi).
+Join our [Google Group](https://groups.google.com/forum/#!forum/ravada) for Ravada Virtual Desktop Infraestructure users. You can ask questions about installation and administration. New release announcements are sent to the subscribers.
+
+You can also chat with us if you get stuck [@ravadavdi on Telegram](https://t.me/ravadavdi).
 
 ## Professional Services
 
