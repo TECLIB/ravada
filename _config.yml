@@ -1,9 +1,12 @@
 title: Ravada VDI
-email: ravada@telecos.upc.edu
-twitter: ravada_vdi
 baseurl: /ravada
 url: https://teclib.github.io
-image: https://teclib.github.io/ravada/images/logo2.png
+image: https://teclib.github.io/ravada/images/logo3.png
+email: ravada@telecos.upc.edu
+email2: ml-flyvemdm@teclib.com
+twitter: https://twitter.com/ravada_vdi
+telegram: http://t.me/ravadavdi
+googleGroup: https://groups.google.com/forum/#!forum/ravada
 
 # Build settings
 markdown: kramdown
@@ -16,7 +19,6 @@ plugins:
 repository: UPC/ravada
 
 prose:
-
   rooturl: '_posts'
 
   ignore:
