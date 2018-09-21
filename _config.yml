@@ -11,6 +11,9 @@ googleGroup: https://groups.google.com/forum/#!forum/ravada
 # Build settings
 markdown: kramdown
 
+sass:
+  style: compressed
+
 plugins:
   - jekyll-github-metadata
   - jekyll-feed
