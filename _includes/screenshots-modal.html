@@ -9,6 +9,14 @@
     {% assign openRow = openRow | plus: 1 %}
   {% endif %}
 
+
+  {% assign url_img = screenshot.image | absolute_url %}
+
+  {% assign my_array = url_img | split: "." %}
+  {% assign format = url_img | replace: my_array.first, "" %}
+
+  {% assign url_img = url_img | replace: format, "" %}
+
   <div class="col-sm-6">
     <figure class="media">
       <div class="media-img ratio-1-1">
@@ -18,7 +26,10 @@
           data-target="#modal-{{ my_counter }}"
           aria-label="image-{{ my_counter }}"
         >
-          <img src="{{ screenshot.image | absolute_url }}" alt="" />
+          <picture>
+            <source type="image/webp" srcset="{{ url_img | append: ".webp" }}">
+            <img src="{{ url_img | append: format }}" alt="{{ screenshot.title }}">
+          </picture>
         </a>
       </div>
       <figcaption class="media-caption">
@@ -50,7 +61,11 @@
           <i class="glyph glyph-clear" data-dismiss="modal"></i>
         </div>
         <div class="modal-body">
-          <img src="{{ screenshot.image | absolute_url }}" alt="{{ screenshot.title }}" />
+          <picture>
+            <source type="image/webp" srcset="{{ url_img | append: ".webp" }}">
+            <img src="{{ url_img | append: format }}" alt="{{ screenshot.title }}">
+          </picture>
+
           {% for paragraph in screenshot.description %}
             <p>
               {{ paragraph }}
