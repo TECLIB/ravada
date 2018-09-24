@@ -7,11 +7,10 @@
         target="_blank"
         rel="noreferrer"
       >
-        <img
-          class="logo"
-          src="{{ site.url }}{{ site.baseurl }}/images/logo-upc.png"
-          alt="UPC"
-        />
+
+        {% assign img = "images/logo-upc.png" | absolute_url %}
+        {% include image-WebP.html img=img alt="UPC" lozy="true" %}
+
       </a>
     </h4>
   </div>
