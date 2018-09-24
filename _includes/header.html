@@ -21,10 +21,7 @@
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
-                  src="{{ 'images/typo.png' | absolute_url }}"
-                  alt="UPC"
-                />
+                {% include image-WebP.html img="images/typo.png" alt="UPC" %}
               </a>
 
               <div class="navbar__separator"></div>
@@ -33,10 +30,7 @@
                 href="{{ '/' | absolute_url }}"
                 class="navbar__logo--second"
               >
-                <img
-                  src="{{ 'images/logo.png' | absolute_url }}"
-                  alt="Home"
-                />
+                {% include image-WebP.html img="images/logo.png" alt="Home" %}
               </a>
             </div>
           </div>
